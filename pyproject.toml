@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "rhub-cli"
+version = "0.1"
+description = "A client library for accessing Resource Hub"
+
+authors = []
+
+readme = "README.md"
+packages = [
+    {include = "rhub_cli"},
+]
+include = ["CHANGELOG.md", "rhub_cli/py.typed"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+httpx = ">=0.15.4,<0.23.0"
+attrs = ">=21.3.0"
+python-dateutil = "^2.8.0"
+click = "^8.0.4"
+pyyaml = "^6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+rhub-cli = 'rhub_cli.cli_main:cli'
+
+[tool.black]
+line-length = 120
+target_version = ['py37', 'py38', 'py39']
+exclude = '''
+(
+  /(
+    | \.git
+    | \.venv
+    | \.mypy_cache
+  )/
+)
+'''
+
+[tool.isort]
+line_length = 120
+profile = "black"
