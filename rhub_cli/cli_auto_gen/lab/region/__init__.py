@@ -84,7 +84,6 @@ def get_list(
 @click.option("--description", type=str)
 @click.option("--enabled", is_flag=True)
 @click.option("--lifespan-length", type=int)
-@click.option("--location")
 @click.option("--location-id")
 @click.option("--openstack-keyname", type=str, help="SSH key name")
 @click.option("--reservation-expiration-max", type=int)
@@ -104,7 +103,6 @@ def create(
     description,
     enabled,
     lifespan_length,
-    location,
     location_id,
     openstack_keyname,
     reservation_expiration_max,
@@ -125,7 +123,6 @@ def create(
         description=description,
         enabled=enabled,
         lifespan_length=lifespan_length,
-        location=location,
         location_id=location_id,
         openstack_keyname=openstack_keyname,
         reservation_expiration_max=reservation_expiration_max,
@@ -181,7 +178,6 @@ def remove(
 @click.option("--description", type=str)
 @click.option("--enabled", is_flag=True)
 @click.option("--lifespan-length", type=int)
-@click.option("--location")
 @click.option("--location-id")
 @click.option("--name", type=str)
 @click.option("--openstack-id", type=int)
@@ -202,7 +198,6 @@ def update(
     description,
     enabled,
     lifespan_length,
-    location,
     location_id,
     name,
     openstack_id,
@@ -223,7 +218,6 @@ def update(
         description=description,
         enabled=enabled,
         lifespan_length=lifespan_length,
-        location=location,
         location_id=location_id,
         name=name,
         openstack_id=openstack_id,

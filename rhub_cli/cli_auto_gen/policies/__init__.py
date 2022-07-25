@@ -81,7 +81,6 @@ def get_list(
 @click.option("--constraint-cost", type=float)
 @click.option("--constraint-density", type=str)
 @click.option("--constraint-limit")
-@click.option("--constraint-location")
 @click.option("--constraint-location-id")
 @click.option("--constraint-sched-avail-item", type=click.DateTime())
 @click.option("--constraint-serv-avail", type=float)
@@ -94,7 +93,6 @@ def create(
     constraint_cost,
     constraint_density,
     constraint_limit,
-    constraint_location,
     constraint_location_id,
     constraint_sched_avail_item,
     constraint_serv_avail,
@@ -121,7 +119,6 @@ def create(
         cost=constraint_cost,
         density=constraint_density,
         limit=constraint_limit,
-        location=constraint_location,
         location_id=constraint_location_id,
         sched_avail=constraint_sched_avail,
         serv_avail=constraint_serv_avail,
@@ -180,7 +177,6 @@ def remove(
 @click.option("--constraint-cost", type=float)
 @click.option("--constraint-density", type=str)
 @click.option("--constraint-limit")
-@click.option("--constraint-location")
 @click.option("--constraint-location-id")
 @click.option("--constraint-sched-avail-item", type=click.DateTime())
 @click.option("--constraint-serv-avail", type=float)
@@ -194,7 +190,6 @@ def update(
     constraint_cost,
     constraint_density,
     constraint_limit,
-    constraint_location,
     constraint_location_id,
     constraint_sched_avail_item,
     constraint_serv_avail,
@@ -221,7 +216,6 @@ def update(
         cost=constraint_cost,
         density=constraint_density,
         limit=constraint_limit,
-        location=constraint_location,
         location_id=constraint_location_id,
         sched_avail=constraint_sched_avail,
         serv_avail=constraint_serv_avail,
