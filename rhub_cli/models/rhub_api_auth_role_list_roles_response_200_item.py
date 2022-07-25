@@ -6,7 +6,6 @@ import attr
 from ..models.rhub_api_auth_role_list_roles_response_200_item_attributes import (
     RhubApiAuthRoleListRolesResponse200ItemAttributes,
 )
-from ..models.rhub_api_auth_role_list_roles_response_200_item_id import RhubApiAuthRoleListRolesResponse200ItemId
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiAuthRoleListRolesResponse200Item")
@@ -23,12 +22,12 @@ class RhubApiAuthRoleListRolesResponse200Item:
 
         Attributes:
             attributes (Union[Unset, RhubApiAuthRoleListRolesResponse200ItemAttributes]): Role attributes
-            id (Union[Unset, RhubApiAuthRoleListRolesResponse200ItemId]):
+            id (Union[Unset, str]):
             name (Union[Unset, str]):
     """
 
     attributes: Union[Unset, RhubApiAuthRoleListRolesResponse200ItemAttributes] = UNSET
-    id: Union[Unset, RhubApiAuthRoleListRolesResponse200ItemId] = UNSET
+    id: Union[Unset, str] = UNSET
     name: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -37,10 +36,7 @@ class RhubApiAuthRoleListRolesResponse200Item:
         if not isinstance(self.attributes, Unset):
             attributes = self.attributes.to_dict()
 
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         name = self.name
 
         field_dict: Dict[str, Any] = {}
@@ -65,12 +61,7 @@ class RhubApiAuthRoleListRolesResponse200Item:
         else:
             attributes = RhubApiAuthRoleListRolesResponse200ItemAttributes.from_dict(_attributes)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiAuthRoleListRolesResponse200ItemId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiAuthRoleListRolesResponse200ItemId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         name = d.pop("name", UNSET)
 

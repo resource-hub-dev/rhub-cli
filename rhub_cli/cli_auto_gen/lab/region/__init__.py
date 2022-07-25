@@ -1,5 +1,3 @@
-import json
-
 import click
 
 from rhub_cli.api.lab.rhub_api_lab_region_create_region import sync_detailed as region_create
@@ -9,22 +7,11 @@ from rhub_cli.api.lab.rhub_api_lab_region_list_regions import sync_detailed as r
 from rhub_cli.api.lab.rhub_api_lab_region_update_region import sync_detailed as region_update
 from rhub_cli.api_request import APIRequest, pass_api
 from rhub_cli.models.rhub_api_lab_region_create_region_json_body import RhubApiLabRegionCreateRegionJsonBody
-from rhub_cli.models.rhub_api_lab_region_create_region_json_body_id import RhubApiLabRegionCreateRegionJsonBodyId
 from rhub_cli.models.rhub_api_lab_region_list_regions_filter import RhubApiLabRegionListRegionsFilter
 from rhub_cli.models.rhub_api_lab_region_list_regions_sort import RhubApiLabRegionListRegionsSort
 from rhub_cli.models.rhub_api_lab_region_update_region_json_body import RhubApiLabRegionUpdateRegionJsonBody
-from rhub_cli.models.rhub_api_lab_region_update_region_json_body_dns_server import (
-    RhubApiLabRegionUpdateRegionJsonBodyDnsServer,
-)
-from rhub_cli.models.rhub_api_lab_region_update_region_json_body_id import RhubApiLabRegionUpdateRegionJsonBodyId
-from rhub_cli.models.rhub_api_lab_region_update_region_json_body_openstack import (
-    RhubApiLabRegionUpdateRegionJsonBodyOpenstack,
-)
-from rhub_cli.models.rhub_api_lab_region_update_region_json_body_satellite import (
-    RhubApiLabRegionUpdateRegionJsonBodySatellite,
-)
-from rhub_cli.types import UNSET
 
+from .all import all
 from .products import products
 from .usage import usage
 
@@ -89,86 +76,61 @@ def get_list(
 
 
 @region.command()
-@click.option("--dns-server", required=True)
-@click.option("--download-server", required=True, type=str)
 @click.option("--name", required=True, type=str)
-@click.option("--openstack", required=True)
-@click.option("--satellite", required=True)
+@click.option("--openstack-id", required=True, type=int)
+@click.option("--owner-group-id", required=True, type=str)
 @click.option("--tower-id", required=True, type=int)
-@click.option("--vault-server", required=True, type=str)
 @click.option("--banner", type=str)
 @click.option("--description", type=str)
 @click.option("--enabled", is_flag=True)
-@click.option("--id")
 @click.option("--lifespan-length", type=int)
-@click.option("--location")
 @click.option("--location-id")
-@click.option("--owner-group", type=str)
-@click.option("--owner-group-name", type=str)
+@click.option("--openstack-keyname", type=str, help="SSH key name")
 @click.option("--reservation-expiration-max", type=int)
 @click.option("--reservations-enabled", is_flag=True)
+@click.option("--satellite-id")
 @click.option("--total-quota")
 @click.option("--user-quota")
-@click.option("--users-group", type=str)
-@click.option("--users-group-name", type=str)
+@click.option("--users-group-id", type=str)
 @pass_api
 def create(
     api: APIRequest,
-    dns_server,
-    download_server,
     name,
-    openstack,
-    satellite,
+    openstack_id,
+    owner_group_id,
     tower_id,
-    vault_server,
     banner,
     description,
     enabled,
-    id,
     lifespan_length,
-    location,
     location_id,
-    owner_group,
-    owner_group_name,
+    openstack_keyname,
     reservation_expiration_max,
     reservations_enabled,
+    satellite_id,
     total_quota,
     user_quota,
-    users_group,
-    users_group_name,
+    users_group_id,
 ):
     """Create region"""
 
-    if id is None:
-        id = UNSET
-    else:
-        _tmp = RhubApiLabRegionCreateRegionJsonBodyId()
-        _tmp.additional_properties = json.loads(id)  # TODO: check if dict
-        id = _tmp
-
     json_body = RhubApiLabRegionCreateRegionJsonBody(
-        dns_server=dns_server,
-        download_server=download_server,
         name=name,
-        openstack=openstack,
-        satellite=satellite,
+        openstack_id=openstack_id,
+        owner_group_id=owner_group_id,
         tower_id=tower_id,
-        vault_server=vault_server,
         banner=banner,
         description=description,
         enabled=enabled,
-        id=id,
         lifespan_length=lifespan_length,
-        location=location,
         location_id=location_id,
-        owner_group=owner_group,
-        owner_group_name=owner_group_name,
+        openstack_keyname=openstack_keyname,
         reservation_expiration_max=reservation_expiration_max,
         reservations_enabled=reservations_enabled,
+        satellite_id=satellite_id,
         total_quota=total_quota,
         user_quota=user_quota,
-        users_group=users_group,
-        users_group_name=users_group_name,
+        users_group_id=users_group_id,
     )
 
     response = region_create(
@@ -214,131 +176,60 @@ def remove(
 @click.argument("region_id", type=int)
 @click.option("--banner", type=str)
 @click.option("--description", type=str)
-@click.option("--download-server", type=str)
 @click.option("--enabled", is_flag=True)
-@click.option("--id")
 @click.option("--lifespan-length", type=int)
-@click.option("--location")
 @click.option("--location-id")
 @click.option("--name", type=str)
-@click.option("--owner-group", type=str)
-@click.option("--owner-group-name", type=str)
+@click.option("--openstack-id", type=int)
+@click.option("--openstack-keyname", type=str, help="SSH key name")
+@click.option("--owner-group-id", type=str)
 @click.option("--reservation-expiration-max", type=int)
 @click.option("--reservations-enabled", is_flag=True)
+@click.option("--satellite-id")
 @click.option("--total-quota")
 @click.option("--tower-id", type=int)
 @click.option("--user-quota")
-@click.option("--users-group", type=str)
-@click.option("--users-group-name", type=str)
-@click.option("--vault-server", type=str)
-@click.option("--dns-server-hostname", type=str)
-@click.option("--dns-server-key")
-@click.option("--dns-server-zone", type=str)
-@click.option("--openstack-credentials")
-@click.option("--openstack-domain-id", type=str)
-@click.option("--openstack-domain-name", type=str)
-@click.option("--openstack-keyname", type=str, help="SSH key name")
-@click.option("--openstack-networks-item", type=str)
-@click.option("--openstack-project", type=str)
-@click.option("--openstack-url", type=str)
-@click.option("--satellite-credentials")
-@click.option("--satellite-hostname", type=str)
-@click.option("--satellite-insecure", is_flag=True)
+@click.option("--users-group-id", type=str)
 @pass_api
 def update(
     api: APIRequest,
     region_id,
     banner,
     description,
-    download_server,
     enabled,
-    id,
     lifespan_length,
-    location,
     location_id,
     name,
-    owner_group,
-    owner_group_name,
+    openstack_id,
+    openstack_keyname,
+    owner_group_id,
     reservation_expiration_max,
     reservations_enabled,
+    satellite_id,
     total_quota,
     tower_id,
     user_quota,
-    users_group,
-    users_group_name,
-    vault_server,
-    dns_server_hostname,
-    dns_server_key,
-    dns_server_zone,
-    openstack_credentials,
-    openstack_domain_id,
-    openstack_domain_name,
-    openstack_keyname,
-    openstack_networks_item,
-    openstack_project,
-    openstack_url,
-    satellite_credentials,
-    satellite_hostname,
-    satellite_insecure,
+    users_group_id,
 ):
     """Update region"""
-
-    openstack_networks = []
-    if openstack_networks_item is not None:
-        openstack_networks.append(openstack_networks_item)
-
-    satellite = RhubApiLabRegionUpdateRegionJsonBodySatellite(
-        credentials=satellite_credentials,
-        hostname=satellite_hostname,
-        insecure=satellite_insecure,
-    )
-
-    openstack = RhubApiLabRegionUpdateRegionJsonBodyOpenstack(
-        credentials=openstack_credentials,
-        domain_id=openstack_domain_id,
-        domain_name=openstack_domain_name,
-        keyname=openstack_keyname,
-        networks=openstack_networks,
-        project=openstack_project,
-        url=openstack_url,
-    )
-
-    if id is None:
-        id = UNSET
-    else:
-        _tmp = RhubApiLabRegionUpdateRegionJsonBodyId()
-        _tmp.additional_properties = json.loads(id)  # TODO: check if dict
-        id = _tmp
-
-    dns_server = RhubApiLabRegionUpdateRegionJsonBodyDnsServer(
-        hostname=dns_server_hostname,
-        key=dns_server_key,
-        zone=dns_server_zone,
-    )
 
     json_body = RhubApiLabRegionUpdateRegionJsonBody(
         banner=banner,
         description=description,
-        dns_server=dns_server,
-        download_server=download_server,
         enabled=enabled,
-        id=id,
         lifespan_length=lifespan_length,
-        location=location,
         location_id=location_id,
         name=name,
-        openstack=openstack,
-        owner_group=owner_group,
-        owner_group_name=owner_group_name,
+        openstack_id=openstack_id,
+        openstack_keyname=openstack_keyname,
+        owner_group_id=owner_group_id,
         reservation_expiration_max=reservation_expiration_max,
         reservations_enabled=reservations_enabled,
-        satellite=satellite,
+        satellite_id=satellite_id,
         total_quota=total_quota,
         tower_id=tower_id,
         user_quota=user_quota,
-        users_group=users_group,
-        users_group_name=users_group_name,
-        vault_server=vault_server,
+        users_group_id=users_group_id,
     )
 
     response = region_update(
@@ -349,5 +240,6 @@ def update(
     api.handle_response(response)
 
 
+region.add_command(all)
 region.add_command(products)
 region.add_command(usage)

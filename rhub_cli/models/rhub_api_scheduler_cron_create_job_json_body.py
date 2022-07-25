@@ -5,7 +5,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 import attr
 from dateutil.parser import isoparse
 
-from ..models.rhub_api_scheduler_cron_create_job_json_body_id import RhubApiSchedulerCronCreateJobJsonBodyId
 from ..models.rhub_api_scheduler_cron_create_job_json_body_job_name import RhubApiSchedulerCronCreateJobJsonBodyJobName
 from ..models.rhub_api_scheduler_cron_create_job_json_body_job_params import (
     RhubApiSchedulerCronCreateJobJsonBodyJobParams,
@@ -24,7 +23,7 @@ class RhubApiSchedulerCronCreateJobJsonBody:
         time_expr (str): cron time expression
         description (Union[Unset, str]):
         enabled (Union[Unset, bool]):
-        id (Union[Unset, RhubApiSchedulerCronCreateJobJsonBodyId]):
+        id (Union[Unset, int]):
         job_params (Union[Unset, None, RhubApiSchedulerCronCreateJobJsonBodyJobParams]):
         last_run (Union[Unset, None, datetime.datetime]):
     """
@@ -34,7 +33,7 @@ class RhubApiSchedulerCronCreateJobJsonBody:
     time_expr: str
     description: Union[Unset, str] = UNSET
     enabled: Union[Unset, bool] = UNSET
-    id: Union[Unset, RhubApiSchedulerCronCreateJobJsonBodyId] = UNSET
+    id: Union[Unset, int] = UNSET
     job_params: Union[Unset, None, RhubApiSchedulerCronCreateJobJsonBodyJobParams] = UNSET
     last_run: Union[Unset, None, datetime.datetime] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
@@ -46,10 +45,7 @@ class RhubApiSchedulerCronCreateJobJsonBody:
         time_expr = self.time_expr
         description = self.description
         enabled = self.enabled
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         job_params: Union[Unset, None, Dict[str, Any]] = UNSET
         if not isinstance(self.job_params, Unset):
             job_params = self.job_params.to_dict() if self.job_params else None
@@ -93,12 +89,7 @@ class RhubApiSchedulerCronCreateJobJsonBody:
 
         enabled = d.pop("enabled", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiSchedulerCronCreateJobJsonBodyId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiSchedulerCronCreateJobJsonBodyId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         _job_params = d.pop("job_params", UNSET)
         job_params: Union[Unset, None, RhubApiSchedulerCronCreateJobJsonBodyJobParams]

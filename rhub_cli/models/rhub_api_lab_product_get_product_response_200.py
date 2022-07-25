@@ -4,7 +4,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union, cast
 import attr
 
 from ..models.rhub_api_lab_product_get_product_response_200_flavors import RhubApiLabProductGetProductResponse200Flavors
-from ..models.rhub_api_lab_product_get_product_response_200_id import RhubApiLabProductGetProductResponse200Id
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiLabProductGetProductResponse200")
@@ -17,7 +16,7 @@ class RhubApiLabProductGetProductResponse200:
         description (Union[Unset, str]):
         enabled (Union[Unset, bool]):
         flavors (Union[Unset, None, RhubApiLabProductGetProductResponse200Flavors]):
-        id (Union[Unset, RhubApiLabProductGetProductResponse200Id]):
+        id (Union[Unset, int]):
         name (Union[Unset, str]):  Example: OpenShift.
         parameters (Union[Unset, List[Any]]):
         tower_template_name_create (Union[Unset, str]):  Example: rhub-openshift-create.
@@ -27,7 +26,7 @@ class RhubApiLabProductGetProductResponse200:
     description: Union[Unset, str] = UNSET
     enabled: Union[Unset, bool] = UNSET
     flavors: Union[Unset, None, RhubApiLabProductGetProductResponse200Flavors] = UNSET
-    id: Union[Unset, RhubApiLabProductGetProductResponse200Id] = UNSET
+    id: Union[Unset, int] = UNSET
     name: Union[Unset, str] = UNSET
     parameters: Union[Unset, List[Any]] = UNSET
     tower_template_name_create: Union[Unset, str] = UNSET
@@ -41,10 +40,7 @@ class RhubApiLabProductGetProductResponse200:
         if not isinstance(self.flavors, Unset):
             flavors = self.flavors.to_dict() if self.flavors else None
 
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         name = self.name
         parameters: Union[Unset, List[Any]] = UNSET
         if not isinstance(self.parameters, Unset):
@@ -96,12 +92,7 @@ class RhubApiLabProductGetProductResponse200:
         else:
             flavors = RhubApiLabProductGetProductResponse200Flavors.from_dict(_flavors)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiLabProductGetProductResponse200Id]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiLabProductGetProductResponse200Id.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         name = d.pop("name", UNSET)
 

@@ -3,7 +3,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.rhub_api_tower_create_server_response_200_id import RhubApiTowerCreateServerResponse200Id
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiTowerCreateServerResponse200")
@@ -16,7 +15,7 @@ class RhubApiTowerCreateServerResponse200:
         credentials (Union[Unset, str]): Tower credentials path (Vault mount/path)
         description (Union[Unset, str]):
         enabled (Union[Unset, bool]):
-        id (Union[Unset, RhubApiTowerCreateServerResponse200Id]):
+        id (Union[Unset, int]):
         name (Union[Unset, str]):
         url (Union[Unset, str]):
         verify_ssl (Union[Unset, bool]): Option to disable SSL certificate verification.
@@ -25,7 +24,7 @@ class RhubApiTowerCreateServerResponse200:
     credentials: Union[Unset, str] = UNSET
     description: Union[Unset, str] = UNSET
     enabled: Union[Unset, bool] = UNSET
-    id: Union[Unset, RhubApiTowerCreateServerResponse200Id] = UNSET
+    id: Union[Unset, int] = UNSET
     name: Union[Unset, str] = UNSET
     url: Union[Unset, str] = UNSET
     verify_ssl: Union[Unset, bool] = UNSET
@@ -35,10 +34,7 @@ class RhubApiTowerCreateServerResponse200:
         credentials = self.credentials
         description = self.description
         enabled = self.enabled
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         name = self.name
         url = self.url
         verify_ssl = self.verify_ssl
@@ -72,12 +68,7 @@ class RhubApiTowerCreateServerResponse200:
 
         enabled = d.pop("enabled", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiTowerCreateServerResponse200Id]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiTowerCreateServerResponse200Id.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         name = d.pop("name", UNSET)
 

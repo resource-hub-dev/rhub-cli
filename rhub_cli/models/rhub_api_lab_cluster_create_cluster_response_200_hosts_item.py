@@ -3,12 +3,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 
-from ..models.rhub_api_lab_cluster_create_cluster_response_200_hosts_item_cluster_id import (
-    RhubApiLabClusterCreateClusterResponse200HostsItemClusterId,
-)
-from ..models.rhub_api_lab_cluster_create_cluster_response_200_hosts_item_id import (
-    RhubApiLabClusterCreateClusterResponse200HostsItemId,
-)
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiLabClusterCreateClusterResponse200HostsItem")
@@ -18,9 +12,9 @@ T = TypeVar("T", bound="RhubApiLabClusterCreateClusterResponse200HostsItem")
 class RhubApiLabClusterCreateClusterResponse200HostsItem:
     """
     Attributes:
-        cluster_id (Union[Unset, RhubApiLabClusterCreateClusterResponse200HostsItemClusterId]):
+        cluster_id (Union[Unset, int]):
         fqdn (Union[Unset, str]):
-        id (Union[Unset, RhubApiLabClusterCreateClusterResponse200HostsItemId]):
+        id (Union[Unset, int]):
         ipaddr (Union[Unset, List[str]]):
         num_vcpus (Union[Unset, None, int]):
         num_volumes (Union[Unset, None, int]):
@@ -28,9 +22,9 @@ class RhubApiLabClusterCreateClusterResponse200HostsItem:
         volumes_gb (Union[Unset, None, int]):
     """
 
-    cluster_id: Union[Unset, RhubApiLabClusterCreateClusterResponse200HostsItemClusterId] = UNSET
+    cluster_id: Union[Unset, int] = UNSET
     fqdn: Union[Unset, str] = UNSET
-    id: Union[Unset, RhubApiLabClusterCreateClusterResponse200HostsItemId] = UNSET
+    id: Union[Unset, int] = UNSET
     ipaddr: Union[Unset, List[str]] = UNSET
     num_vcpus: Union[Unset, None, int] = UNSET
     num_volumes: Union[Unset, None, int] = UNSET
@@ -39,15 +33,9 @@ class RhubApiLabClusterCreateClusterResponse200HostsItem:
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        cluster_id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.cluster_id, Unset):
-            cluster_id = self.cluster_id.to_dict()
-
+        cluster_id = self.cluster_id
         fqdn = self.fqdn
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         ipaddr: Union[Unset, List[str]] = UNSET
         if not isinstance(self.ipaddr, Unset):
             ipaddr = []
@@ -87,21 +75,11 @@ class RhubApiLabClusterCreateClusterResponse200HostsItem:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = copy(src_dict)
-        _cluster_id = d.pop("cluster_id", UNSET)
-        cluster_id: Union[Unset, RhubApiLabClusterCreateClusterResponse200HostsItemClusterId]
-        if isinstance(_cluster_id, Unset):
-            cluster_id = UNSET
-        else:
-            cluster_id = RhubApiLabClusterCreateClusterResponse200HostsItemClusterId.from_dict(_cluster_id)
+        cluster_id = d.pop("cluster_id", UNSET)
 
         fqdn = d.pop("fqdn", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiLabClusterCreateClusterResponse200HostsItemId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiLabClusterCreateClusterResponse200HostsItemId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         ipaddr = []
         _ipaddr = d.pop("ipaddr", UNSET)

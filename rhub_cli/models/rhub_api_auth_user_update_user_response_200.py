@@ -3,7 +3,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.rhub_api_auth_user_update_user_response_200_id import RhubApiAuthUserUpdateUserResponse200Id
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiAuthUserUpdateUserResponse200")
@@ -24,7 +23,7 @@ class RhubApiAuthUserUpdateUserResponse200:
           email (Union[Unset, str]):
           enabled (Union[Unset, bool]):
           first_name (Union[Unset, str]):
-          id (Union[Unset, RhubApiAuthUserUpdateUserResponse200Id]):
+          id (Union[Unset, str]):
           last_name (Union[Unset, str]):
           password (Union[Unset, str]):
           username (Union[Unset, str]):
@@ -33,7 +32,7 @@ class RhubApiAuthUserUpdateUserResponse200:
     email: Union[Unset, str] = UNSET
     enabled: Union[Unset, bool] = UNSET
     first_name: Union[Unset, str] = UNSET
-    id: Union[Unset, RhubApiAuthUserUpdateUserResponse200Id] = UNSET
+    id: Union[Unset, str] = UNSET
     last_name: Union[Unset, str] = UNSET
     password: Union[Unset, str] = UNSET
     username: Union[Unset, str] = UNSET
@@ -43,10 +42,7 @@ class RhubApiAuthUserUpdateUserResponse200:
         email = self.email
         enabled = self.enabled
         first_name = self.first_name
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         last_name = self.last_name
         password = self.password
         username = self.username
@@ -80,12 +76,7 @@ class RhubApiAuthUserUpdateUserResponse200:
 
         first_name = d.pop("firstName", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiAuthUserUpdateUserResponse200Id]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiAuthUserUpdateUserResponse200Id.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         last_name = d.pop("lastName", UNSET)
 

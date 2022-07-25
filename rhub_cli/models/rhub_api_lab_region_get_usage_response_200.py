@@ -3,9 +3,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 
-from ..models.rhub_api_lab_region_get_usage_response_200_openstack_limits import (
-    RhubApiLabRegionGetUsageResponse200OpenstackLimits,
-)
 from ..models.rhub_api_lab_region_get_usage_response_200_total_quota_type_0 import (
     RhubApiLabRegionGetUsageResponse200TotalQuotaType0,
 )
@@ -27,15 +24,12 @@ T = TypeVar("T", bound="RhubApiLabRegionGetUsageResponse200")
 class RhubApiLabRegionGetUsageResponse200:
     """
     Attributes:
-        openstack_limits (Union[Unset, RhubApiLabRegionGetUsageResponse200OpenstackLimits]): OpenStack limits RAW value
-            from the API.
         total_quota (Union[Any, RhubApiLabRegionGetUsageResponse200TotalQuotaType0, Unset]):
         total_quota_usage (Union[Unset, RhubApiLabRegionGetUsageResponse200TotalQuotaUsage]):
         user_quota (Union[Any, RhubApiLabRegionGetUsageResponse200UserQuotaType0, Unset]):
         user_quota_usage (Union[Unset, RhubApiLabRegionGetUsageResponse200UserQuotaUsage]):
     """
 
-    openstack_limits: Union[Unset, RhubApiLabRegionGetUsageResponse200OpenstackLimits] = UNSET
     total_quota: Union[Any, RhubApiLabRegionGetUsageResponse200TotalQuotaType0, Unset] = UNSET
     total_quota_usage: Union[Unset, RhubApiLabRegionGetUsageResponse200TotalQuotaUsage] = UNSET
     user_quota: Union[Any, RhubApiLabRegionGetUsageResponse200UserQuotaType0, Unset] = UNSET
@@ -43,10 +37,6 @@ class RhubApiLabRegionGetUsageResponse200:
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        openstack_limits: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.openstack_limits, Unset):
-            openstack_limits = self.openstack_limits.to_dict()
-
         total_quota: Union[Any, Dict[str, Any], Unset]
         if isinstance(self.total_quota, Unset):
             total_quota = UNSET
@@ -82,8 +72,6 @@ class RhubApiLabRegionGetUsageResponse200:
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if openstack_limits is not UNSET:
-            field_dict["openstack_limits"] = openstack_limits
         if total_quota is not UNSET:
             field_dict["total_quota"] = total_quota
         if total_quota_usage is not UNSET:
@@ -98,12 +86,6 @@ class RhubApiLabRegionGetUsageResponse200:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = copy(src_dict)
-        _openstack_limits = d.pop("openstack_limits", UNSET)
-        openstack_limits: Union[Unset, RhubApiLabRegionGetUsageResponse200OpenstackLimits]
-        if isinstance(_openstack_limits, Unset):
-            openstack_limits = UNSET
-        else:
-            openstack_limits = RhubApiLabRegionGetUsageResponse200OpenstackLimits.from_dict(_openstack_limits)
 
         def _parse_total_quota(data: object) -> Union[Any, RhubApiLabRegionGetUsageResponse200TotalQuotaType0, Unset]:
             if isinstance(data, Unset):
@@ -162,7 +144,6 @@ class RhubApiLabRegionGetUsageResponse200:
             user_quota_usage = RhubApiLabRegionGetUsageResponse200UserQuotaUsage.from_dict(_user_quota_usage)
 
         rhub_api_lab_region_get_usage_response_200 = cls(
-            openstack_limits=openstack_limits,
             total_quota=total_quota,
             total_quota_usage=total_quota_usage,
             user_quota=user_quota,

@@ -3,20 +3,14 @@ from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 
-from ..models.rhub_api_lab_region_list_regions_response_200_data_item_dns_server import (
-    RhubApiLabRegionListRegionsResponse200DataItemDnsServer,
-)
-from ..models.rhub_api_lab_region_list_regions_response_200_data_item_id import (
-    RhubApiLabRegionListRegionsResponse200DataItemId,
-)
 from ..models.rhub_api_lab_region_list_regions_response_200_data_item_location_type_0 import (
     RhubApiLabRegionListRegionsResponse200DataItemLocationType0,
 )
 from ..models.rhub_api_lab_region_list_regions_response_200_data_item_openstack import (
     RhubApiLabRegionListRegionsResponse200DataItemOpenstack,
 )
-from ..models.rhub_api_lab_region_list_regions_response_200_data_item_satellite import (
-    RhubApiLabRegionListRegionsResponse200DataItemSatellite,
+from ..models.rhub_api_lab_region_list_regions_response_200_data_item_satellite_type_0 import (
+    RhubApiLabRegionListRegionsResponse200DataItemSatelliteType0,
 )
 from ..models.rhub_api_lab_region_list_regions_response_200_data_item_total_quota_type_0 import (
     RhubApiLabRegionListRegionsResponse200DataItemTotalQuotaType0,
@@ -35,71 +29,59 @@ class RhubApiLabRegionListRegionsResponse200DataItem:
     Attributes:
         banner (Union[Unset, str]):
         description (Union[Unset, str]):
-        dns_server (Union[Unset, RhubApiLabRegionListRegionsResponse200DataItemDnsServer]):  Example: {'hostname':
-            'ns.example.com', 'key': 'kv/region/rdu2-a/dns', 'zone': 'example.com.'}.
-        download_server (Union[Unset, str]):  Example: https://download.example.com.
         enabled (Union[Unset, bool]):
-        id (Union[Unset, RhubApiLabRegionListRegionsResponse200DataItemId]):
+        id (Union[Unset, int]):
         lifespan_length (Union[Unset, None, int]):
         location (Union[Any, RhubApiLabRegionListRegionsResponse200DataItemLocationType0, Unset]):
         location_id (Union[Any, Unset, int]):
         name (Union[Unset, str]):  Example: rdu2-a.
-        openstack (Union[Unset, RhubApiLabRegionListRegionsResponse200DataItemOpenstack]):  Example: {'credentials':
-            'kv/region/rdu2-a/openstack', 'domain_id': 'default', 'domain_name': 'Default', 'keyname': 'rhub', 'networks':
-            ['provider_net_rhub'], 'project': 'rhub', 'url': 'https://openstack.example.com:13000'}.
-        owner_group (Union[Unset, str]):  Example: 7670ac07-cb21-448d-af8a-6e3882216be3.
+        openstack (Union[Unset, RhubApiLabRegionListRegionsResponse200DataItemOpenstack]):
+        openstack_id (Union[Unset, int]):
+        openstack_keyname (Union[Unset, str]): SSH key name
+        owner_group_id (Union[Unset, str]):  Example: 7670ac07-cb21-448d-af8a-6e3882216be3.
         owner_group_name (Union[Unset, None, str]):
         reservation_expiration_max (Union[Unset, None, int]):
         reservations_enabled (Union[Unset, bool]):
-        satellite (Union[Unset, RhubApiLabRegionListRegionsResponse200DataItemSatellite]):  Example: {'credentials':
-            'kv/region/rdu2-a/satellite', 'hostname': 'satellite.example.com', 'insecure': False}.
+        satellite (Union[Any, RhubApiLabRegionListRegionsResponse200DataItemSatelliteType0, Unset]):
+        satellite_id (Union[Any, Unset, int]):
         total_quota (Union[Any, RhubApiLabRegionListRegionsResponse200DataItemTotalQuotaType0, Unset]):  Example:
             {'num_vcpus': 40000, 'num_volumes': 40000, 'ram_mb': 200000000, 'volumes_gb': 540000}.
         tower_id (Union[Unset, int]):
         user_quota (Union[Any, RhubApiLabRegionListRegionsResponse200DataItemUserQuotaType0, Unset]):  Example:
             {'num_vcpus': 40, 'num_volumes': 40, 'ram_mb': 200000, 'volumes_gb': 540}.
-        users_group (Union[Unset, None, str]):
+        users_group_id (Union[Unset, None, str]):
         users_group_name (Union[Unset, None, str]):
-        vault_server (Union[Unset, str]):  Example: https://vault.example.com.
     """
 
     banner: Union[Unset, str] = UNSET
     description: Union[Unset, str] = UNSET
-    dns_server: Union[Unset, RhubApiLabRegionListRegionsResponse200DataItemDnsServer] = UNSET
-    download_server: Union[Unset, str] = UNSET
     enabled: Union[Unset, bool] = UNSET
-    id: Union[Unset, RhubApiLabRegionListRegionsResponse200DataItemId] = UNSET
+    id: Union[Unset, int] = UNSET
     lifespan_length: Union[Unset, None, int] = UNSET
     location: Union[Any, RhubApiLabRegionListRegionsResponse200DataItemLocationType0, Unset] = UNSET
     location_id: Union[Any, Unset, int] = UNSET
     name: Union[Unset, str] = UNSET
     openstack: Union[Unset, RhubApiLabRegionListRegionsResponse200DataItemOpenstack] = UNSET
-    owner_group: Union[Unset, str] = UNSET
+    openstack_id: Union[Unset, int] = UNSET
+    openstack_keyname: Union[Unset, str] = UNSET
+    owner_group_id: Union[Unset, str] = UNSET
     owner_group_name: Union[Unset, None, str] = UNSET
     reservation_expiration_max: Union[Unset, None, int] = UNSET
     reservations_enabled: Union[Unset, bool] = UNSET
-    satellite: Union[Unset, RhubApiLabRegionListRegionsResponse200DataItemSatellite] = UNSET
+    satellite: Union[Any, RhubApiLabRegionListRegionsResponse200DataItemSatelliteType0, Unset] = UNSET
+    satellite_id: Union[Any, Unset, int] = UNSET
     total_quota: Union[Any, RhubApiLabRegionListRegionsResponse200DataItemTotalQuotaType0, Unset] = UNSET
     tower_id: Union[Unset, int] = UNSET
     user_quota: Union[Any, RhubApiLabRegionListRegionsResponse200DataItemUserQuotaType0, Unset] = UNSET
-    users_group: Union[Unset, None, str] = UNSET
+    users_group_id: Union[Unset, None, str] = UNSET
     users_group_name: Union[Unset, None, str] = UNSET
-    vault_server: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         banner = self.banner
         description = self.description
-        dns_server: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.dns_server, Unset):
-            dns_server = self.dns_server.to_dict()
-
-        download_server = self.download_server
         enabled = self.enabled
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         lifespan_length = self.lifespan_length
         location: Union[Any, Dict[str, Any], Unset]
         if isinstance(self.location, Unset):
@@ -125,13 +107,30 @@ class RhubApiLabRegionListRegionsResponse200DataItem:
         if not isinstance(self.openstack, Unset):
             openstack = self.openstack.to_dict()
 
-        owner_group = self.owner_group
+        openstack_id = self.openstack_id
+        openstack_keyname = self.openstack_keyname
+        owner_group_id = self.owner_group_id
         owner_group_name = self.owner_group_name
         reservation_expiration_max = self.reservation_expiration_max
         reservations_enabled = self.reservations_enabled
-        satellite: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.satellite, Unset):
-            satellite = self.satellite.to_dict()
+        satellite: Union[Any, Dict[str, Any], Unset]
+        if isinstance(self.satellite, Unset):
+            satellite = UNSET
+
+        elif isinstance(self.satellite, RhubApiLabRegionListRegionsResponse200DataItemSatelliteType0):
+            satellite = UNSET
+            if not isinstance(self.satellite, Unset):
+                satellite = self.satellite.to_dict()
+
+        else:
+            satellite = self.satellite
+
+        satellite_id: Union[Any, Unset, int]
+        if isinstance(self.satellite_id, Unset):
+            satellite_id = UNSET
+
+        else:
+            satellite_id = self.satellite_id
 
         total_quota: Union[Any, Dict[str, Any], Unset]
         if isinstance(self.total_quota, Unset):
@@ -158,9 +157,8 @@ class RhubApiLabRegionListRegionsResponse200DataItem:
         else:
             user_quota = self.user_quota
 
-        users_group = self.users_group
+        users_group_id = self.users_group_id
         users_group_name = self.users_group_name
-        vault_server = self.vault_server
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -169,10 +167,6 @@ class RhubApiLabRegionListRegionsResponse200DataItem:
             field_dict["banner"] = banner
         if description is not UNSET:
             field_dict["description"] = description
-        if dns_server is not UNSET:
-            field_dict["dns_server"] = dns_server
-        if download_server is not UNSET:
-            field_dict["download_server"] = download_server
         if enabled is not UNSET:
             field_dict["enabled"] = enabled
         if id is not UNSET:
@@ -187,8 +181,12 @@ class RhubApiLabRegionListRegionsResponse200DataItem:
             field_dict["name"] = name
         if openstack is not UNSET:
             field_dict["openstack"] = openstack
-        if owner_group is not UNSET:
-            field_dict["owner_group"] = owner_group
+        if openstack_id is not UNSET:
+            field_dict["openstack_id"] = openstack_id
+        if openstack_keyname is not UNSET:
+            field_dict["openstack_keyname"] = openstack_keyname
+        if owner_group_id is not UNSET:
+            field_dict["owner_group_id"] = owner_group_id
         if owner_group_name is not UNSET:
             field_dict["owner_group_name"] = owner_group_name
         if reservation_expiration_max is not UNSET:
@@ -197,18 +195,18 @@ class RhubApiLabRegionListRegionsResponse200DataItem:
             field_dict["reservations_enabled"] = reservations_enabled
         if satellite is not UNSET:
             field_dict["satellite"] = satellite
+        if satellite_id is not UNSET:
+            field_dict["satellite_id"] = satellite_id
         if total_quota is not UNSET:
             field_dict["total_quota"] = total_quota
         if tower_id is not UNSET:
             field_dict["tower_id"] = tower_id
         if user_quota is not UNSET:
             field_dict["user_quota"] = user_quota
-        if users_group is not UNSET:
-            field_dict["users_group"] = users_group
+        if users_group_id is not UNSET:
+            field_dict["users_group_id"] = users_group_id
         if users_group_name is not UNSET:
             field_dict["users_group_name"] = users_group_name
-        if vault_server is not UNSET:
-            field_dict["vault_server"] = vault_server
 
         return field_dict
 
@@ -219,23 +217,9 @@ class RhubApiLabRegionListRegionsResponse200DataItem:
 
         description = d.pop("description", UNSET)
 
-        _dns_server = d.pop("dns_server", UNSET)
-        dns_server: Union[Unset, RhubApiLabRegionListRegionsResponse200DataItemDnsServer]
-        if isinstance(_dns_server, Unset):
-            dns_server = UNSET
-        else:
-            dns_server = RhubApiLabRegionListRegionsResponse200DataItemDnsServer.from_dict(_dns_server)
-
-        download_server = d.pop("download_server", UNSET)
-
         enabled = d.pop("enabled", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiLabRegionListRegionsResponse200DataItemId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiLabRegionListRegionsResponse200DataItemId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         lifespan_length = d.pop("lifespan_length", UNSET)
 
@@ -279,7 +263,11 @@ class RhubApiLabRegionListRegionsResponse200DataItem:
         else:
             openstack = RhubApiLabRegionListRegionsResponse200DataItemOpenstack.from_dict(_openstack)
 
-        owner_group = d.pop("owner_group", UNSET)
+        openstack_id = d.pop("openstack_id", UNSET)
+
+        openstack_keyname = d.pop("openstack_keyname", UNSET)
+
+        owner_group_id = d.pop("owner_group_id", UNSET)
 
         owner_group_name = d.pop("owner_group_name", UNSET)
 
@@ -287,12 +275,36 @@ class RhubApiLabRegionListRegionsResponse200DataItem:
 
         reservations_enabled = d.pop("reservations_enabled", UNSET)
 
-        _satellite = d.pop("satellite", UNSET)
-        satellite: Union[Unset, RhubApiLabRegionListRegionsResponse200DataItemSatellite]
-        if isinstance(_satellite, Unset):
-            satellite = UNSET
-        else:
-            satellite = RhubApiLabRegionListRegionsResponse200DataItemSatellite.from_dict(_satellite)
+        def _parse_satellite(
+            data: object,
+        ) -> Union[Any, RhubApiLabRegionListRegionsResponse200DataItemSatelliteType0, Unset]:
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                _satellite_type_0 = data
+                satellite_type_0: Union[Unset, RhubApiLabRegionListRegionsResponse200DataItemSatelliteType0]
+                if isinstance(_satellite_type_0, Unset):
+                    satellite_type_0 = UNSET
+                else:
+                    satellite_type_0 = RhubApiLabRegionListRegionsResponse200DataItemSatelliteType0.from_dict(
+                        _satellite_type_0
+                    )
+
+                return satellite_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[Any, RhubApiLabRegionListRegionsResponse200DataItemSatelliteType0, Unset], data)
+
+        satellite = _parse_satellite(d.pop("satellite", UNSET))
+
+        def _parse_satellite_id(data: object) -> Union[Any, Unset, int]:
+            if isinstance(data, Unset):
+                return data
+            return cast(Union[Any, Unset, int], data)
+
+        satellite_id = _parse_satellite_id(d.pop("satellite_id", UNSET))
 
         def _parse_total_quota(
             data: object,
@@ -344,17 +356,13 @@ class RhubApiLabRegionListRegionsResponse200DataItem:
 
         user_quota = _parse_user_quota(d.pop("user_quota", UNSET))
 
-        users_group = d.pop("users_group", UNSET)
+        users_group_id = d.pop("users_group_id", UNSET)
 
         users_group_name = d.pop("users_group_name", UNSET)
-
-        vault_server = d.pop("vault_server", UNSET)
 
         rhub_api_lab_region_list_regions_response_200_data_item = cls(
             banner=banner,
             description=description,
-            dns_server=dns_server,
-            download_server=download_server,
             enabled=enabled,
             id=id,
             lifespan_length=lifespan_length,
@@ -362,17 +370,19 @@ class RhubApiLabRegionListRegionsResponse200DataItem:
             location_id=location_id,
             name=name,
             openstack=openstack,
-            owner_group=owner_group,
+            openstack_id=openstack_id,
+            openstack_keyname=openstack_keyname,
+            owner_group_id=owner_group_id,
             owner_group_name=owner_group_name,
             reservation_expiration_max=reservation_expiration_max,
             reservations_enabled=reservations_enabled,
             satellite=satellite,
+            satellite_id=satellite_id,
             total_quota=total_quota,
             tower_id=tower_id,
             user_quota=user_quota,
-            users_group=users_group,
+            users_group_id=users_group_id,
             users_group_name=users_group_name,
-            vault_server=vault_server,
         )
 
         rhub_api_lab_region_list_regions_response_200_data_item.additional_properties = d

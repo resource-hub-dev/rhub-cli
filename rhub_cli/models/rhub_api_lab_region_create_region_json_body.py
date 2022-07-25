@@ -3,9 +3,12 @@ from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 
-from ..models.rhub_api_lab_region_create_region_json_body_id import RhubApiLabRegionCreateRegionJsonBodyId
 from ..models.rhub_api_lab_region_create_region_json_body_location_type_0 import (
     RhubApiLabRegionCreateRegionJsonBodyLocationType0,
+)
+from ..models.rhub_api_lab_region_create_region_json_body_openstack import RhubApiLabRegionCreateRegionJsonBodyOpenstack
+from ..models.rhub_api_lab_region_create_region_json_body_satellite_type_0 import (
+    RhubApiLabRegionCreateRegionJsonBodySatelliteType0,
 )
 from ..models.rhub_api_lab_region_create_region_json_body_total_quota_type_0 import (
     RhubApiLabRegionCreateRegionJsonBodyTotalQuotaType0,
@@ -22,71 +25,65 @@ T = TypeVar("T", bound="RhubApiLabRegionCreateRegionJsonBody")
 class RhubApiLabRegionCreateRegionJsonBody:
     """
     Attributes:
-        dns_server (Any):
-        download_server (str):  Example: https://download.example.com.
         name (str):  Example: rdu2-a.
-        openstack (Any):
-        satellite (Any):
+        openstack_id (int):
+        owner_group_id (str):  Example: 7670ac07-cb21-448d-af8a-6e3882216be3.
         tower_id (int):
-        vault_server (str):  Example: https://vault.example.com.
         banner (Union[Unset, str]):
         description (Union[Unset, str]):
         enabled (Union[Unset, bool]):
-        id (Union[Unset, RhubApiLabRegionCreateRegionJsonBodyId]):
+        id (Union[Unset, int]):
         lifespan_length (Union[Unset, None, int]):
         location (Union[Any, RhubApiLabRegionCreateRegionJsonBodyLocationType0, Unset]):
         location_id (Union[Any, Unset, int]):
-        owner_group (Union[Unset, str]):  Example: 7670ac07-cb21-448d-af8a-6e3882216be3.
+        openstack (Union[Unset, RhubApiLabRegionCreateRegionJsonBodyOpenstack]):
+        openstack_keyname (Union[Unset, str]): SSH key name
         owner_group_name (Union[Unset, None, str]):
         reservation_expiration_max (Union[Unset, None, int]):
         reservations_enabled (Union[Unset, bool]):
+        satellite (Union[Any, RhubApiLabRegionCreateRegionJsonBodySatelliteType0, Unset]):
+        satellite_id (Union[Any, Unset, int]):
         total_quota (Union[Any, RhubApiLabRegionCreateRegionJsonBodyTotalQuotaType0, Unset]):  Example: {'num_vcpus':
             40000, 'num_volumes': 40000, 'ram_mb': 200000000, 'volumes_gb': 540000}.
         user_quota (Union[Any, RhubApiLabRegionCreateRegionJsonBodyUserQuotaType0, Unset]):  Example: {'num_vcpus': 40,
             'num_volumes': 40, 'ram_mb': 200000, 'volumes_gb': 540}.
-        users_group (Union[Unset, None, str]):
+        users_group_id (Union[Unset, None, str]):
         users_group_name (Union[Unset, None, str]):
     """
 
-    dns_server: Any
-    download_server: str
     name: str
-    openstack: Any
-    satellite: Any
+    openstack_id: int
+    owner_group_id: str
     tower_id: int
-    vault_server: str
     banner: Union[Unset, str] = UNSET
     description: Union[Unset, str] = UNSET
     enabled: Union[Unset, bool] = UNSET
-    id: Union[Unset, RhubApiLabRegionCreateRegionJsonBodyId] = UNSET
+    id: Union[Unset, int] = UNSET
     lifespan_length: Union[Unset, None, int] = UNSET
     location: Union[Any, RhubApiLabRegionCreateRegionJsonBodyLocationType0, Unset] = UNSET
     location_id: Union[Any, Unset, int] = UNSET
-    owner_group: Union[Unset, str] = UNSET
+    openstack: Union[Unset, RhubApiLabRegionCreateRegionJsonBodyOpenstack] = UNSET
+    openstack_keyname: Union[Unset, str] = UNSET
     owner_group_name: Union[Unset, None, str] = UNSET
     reservation_expiration_max: Union[Unset, None, int] = UNSET
     reservations_enabled: Union[Unset, bool] = UNSET
+    satellite: Union[Any, RhubApiLabRegionCreateRegionJsonBodySatelliteType0, Unset] = UNSET
+    satellite_id: Union[Any, Unset, int] = UNSET
     total_quota: Union[Any, RhubApiLabRegionCreateRegionJsonBodyTotalQuotaType0, Unset] = UNSET
     user_quota: Union[Any, RhubApiLabRegionCreateRegionJsonBodyUserQuotaType0, Unset] = UNSET
-    users_group: Union[Unset, None, str] = UNSET
+    users_group_id: Union[Unset, None, str] = UNSET
     users_group_name: Union[Unset, None, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        dns_server = self.dns_server
-        download_server = self.download_server
         name = self.name
-        openstack = self.openstack
-        satellite = self.satellite
+        openstack_id = self.openstack_id
+        owner_group_id = self.owner_group_id
         tower_id = self.tower_id
-        vault_server = self.vault_server
         banner = self.banner
         description = self.description
         enabled = self.enabled
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         lifespan_length = self.lifespan_length
         location: Union[Any, Dict[str, Any], Unset]
         if isinstance(self.location, Unset):
@@ -107,10 +104,33 @@ class RhubApiLabRegionCreateRegionJsonBody:
         else:
             location_id = self.location_id
 
-        owner_group = self.owner_group
+        openstack: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.openstack, Unset):
+            openstack = self.openstack.to_dict()
+
+        openstack_keyname = self.openstack_keyname
         owner_group_name = self.owner_group_name
         reservation_expiration_max = self.reservation_expiration_max
         reservations_enabled = self.reservations_enabled
+        satellite: Union[Any, Dict[str, Any], Unset]
+        if isinstance(self.satellite, Unset):
+            satellite = UNSET
+
+        elif isinstance(self.satellite, RhubApiLabRegionCreateRegionJsonBodySatelliteType0):
+            satellite = UNSET
+            if not isinstance(self.satellite, Unset):
+                satellite = self.satellite.to_dict()
+
+        else:
+            satellite = self.satellite
+
+        satellite_id: Union[Any, Unset, int]
+        if isinstance(self.satellite_id, Unset):
+            satellite_id = UNSET
+
+        else:
+            satellite_id = self.satellite_id
+
         total_quota: Union[Any, Dict[str, Any], Unset]
         if isinstance(self.total_quota, Unset):
             total_quota = UNSET
@@ -135,20 +155,17 @@ class RhubApiLabRegionCreateRegionJsonBody:
         else:
             user_quota = self.user_quota
 
-        users_group = self.users_group
+        users_group_id = self.users_group_id
         users_group_name = self.users_group_name
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "dns_server": dns_server,
-                "download_server": download_server,
                 "name": name,
-                "openstack": openstack,
-                "satellite": satellite,
+                "openstack_id": openstack_id,
+                "owner_group_id": owner_group_id,
                 "tower_id": tower_id,
-                "vault_server": vault_server,
             }
         )
         if banner is not UNSET:
@@ -165,20 +182,26 @@ class RhubApiLabRegionCreateRegionJsonBody:
             field_dict["location"] = location
         if location_id is not UNSET:
             field_dict["location_id"] = location_id
-        if owner_group is not UNSET:
-            field_dict["owner_group"] = owner_group
+        if openstack is not UNSET:
+            field_dict["openstack"] = openstack
+        if openstack_keyname is not UNSET:
+            field_dict["openstack_keyname"] = openstack_keyname
         if owner_group_name is not UNSET:
             field_dict["owner_group_name"] = owner_group_name
         if reservation_expiration_max is not UNSET:
             field_dict["reservation_expiration_max"] = reservation_expiration_max
         if reservations_enabled is not UNSET:
             field_dict["reservations_enabled"] = reservations_enabled
+        if satellite is not UNSET:
+            field_dict["satellite"] = satellite
+        if satellite_id is not UNSET:
+            field_dict["satellite_id"] = satellite_id
         if total_quota is not UNSET:
             field_dict["total_quota"] = total_quota
         if user_quota is not UNSET:
             field_dict["user_quota"] = user_quota
-        if users_group is not UNSET:
-            field_dict["users_group"] = users_group
+        if users_group_id is not UNSET:
+            field_dict["users_group_id"] = users_group_id
         if users_group_name is not UNSET:
             field_dict["users_group_name"] = users_group_name
 
@@ -187,19 +210,13 @@ class RhubApiLabRegionCreateRegionJsonBody:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = copy(src_dict)
-        dns_server = d.pop("dns_server")
-
-        download_server = d.pop("download_server")
-
         name = d.pop("name")
 
-        openstack = d.pop("openstack")
+        openstack_id = d.pop("openstack_id")
 
-        satellite = d.pop("satellite")
+        owner_group_id = d.pop("owner_group_id")
 
         tower_id = d.pop("tower_id")
-
-        vault_server = d.pop("vault_server")
 
         banner = d.pop("banner", UNSET)
 
@@ -207,12 +224,7 @@ class RhubApiLabRegionCreateRegionJsonBody:
 
         enabled = d.pop("enabled", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiLabRegionCreateRegionJsonBodyId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiLabRegionCreateRegionJsonBodyId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         lifespan_length = d.pop("lifespan_length", UNSET)
 
@@ -243,13 +255,47 @@ class RhubApiLabRegionCreateRegionJsonBody:
 
         location_id = _parse_location_id(d.pop("location_id", UNSET))
 
-        owner_group = d.pop("owner_group", UNSET)
+        _openstack = d.pop("openstack", UNSET)
+        openstack: Union[Unset, RhubApiLabRegionCreateRegionJsonBodyOpenstack]
+        if isinstance(_openstack, Unset):
+            openstack = UNSET
+        else:
+            openstack = RhubApiLabRegionCreateRegionJsonBodyOpenstack.from_dict(_openstack)
+
+        openstack_keyname = d.pop("openstack_keyname", UNSET)
 
         owner_group_name = d.pop("owner_group_name", UNSET)
 
         reservation_expiration_max = d.pop("reservation_expiration_max", UNSET)
 
         reservations_enabled = d.pop("reservations_enabled", UNSET)
+
+        def _parse_satellite(data: object) -> Union[Any, RhubApiLabRegionCreateRegionJsonBodySatelliteType0, Unset]:
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                _satellite_type_0 = data
+                satellite_type_0: Union[Unset, RhubApiLabRegionCreateRegionJsonBodySatelliteType0]
+                if isinstance(_satellite_type_0, Unset):
+                    satellite_type_0 = UNSET
+                else:
+                    satellite_type_0 = RhubApiLabRegionCreateRegionJsonBodySatelliteType0.from_dict(_satellite_type_0)
+
+                return satellite_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[Any, RhubApiLabRegionCreateRegionJsonBodySatelliteType0, Unset], data)
+
+        satellite = _parse_satellite(d.pop("satellite", UNSET))
+
+        def _parse_satellite_id(data: object) -> Union[Any, Unset, int]:
+            if isinstance(data, Unset):
+                return data
+            return cast(Union[Any, Unset, int], data)
+
+        satellite_id = _parse_satellite_id(d.pop("satellite_id", UNSET))
 
         def _parse_total_quota(data: object) -> Union[Any, RhubApiLabRegionCreateRegionJsonBodyTotalQuotaType0, Unset]:
             if isinstance(data, Unset):
@@ -293,18 +339,15 @@ class RhubApiLabRegionCreateRegionJsonBody:
 
         user_quota = _parse_user_quota(d.pop("user_quota", UNSET))
 
-        users_group = d.pop("users_group", UNSET)
+        users_group_id = d.pop("users_group_id", UNSET)
 
         users_group_name = d.pop("users_group_name", UNSET)
 
         rhub_api_lab_region_create_region_json_body = cls(
-            dns_server=dns_server,
-            download_server=download_server,
             name=name,
-            openstack=openstack,
-            satellite=satellite,
+            openstack_id=openstack_id,
+            owner_group_id=owner_group_id,
             tower_id=tower_id,
-            vault_server=vault_server,
             banner=banner,
             description=description,
             enabled=enabled,
@@ -312,13 +355,16 @@ class RhubApiLabRegionCreateRegionJsonBody:
             lifespan_length=lifespan_length,
             location=location,
             location_id=location_id,
-            owner_group=owner_group,
+            openstack=openstack,
+            openstack_keyname=openstack_keyname,
             owner_group_name=owner_group_name,
             reservation_expiration_max=reservation_expiration_max,
             reservations_enabled=reservations_enabled,
+            satellite=satellite,
+            satellite_id=satellite_id,
             total_quota=total_quota,
             user_quota=user_quota,
-            users_group=users_group,
+            users_group_id=users_group_id,
             users_group_name=users_group_name,
         )
 

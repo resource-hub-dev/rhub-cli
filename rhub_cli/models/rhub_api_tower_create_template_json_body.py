@@ -3,7 +3,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.rhub_api_tower_create_template_json_body_id import RhubApiTowerCreateTemplateJsonBodyId
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiTowerCreateTemplateJsonBody")
@@ -18,7 +17,7 @@ class RhubApiTowerCreateTemplateJsonBody:
         tower_template_id (int):
         tower_template_is_workflow (bool): Is template workflow?
         description (Union[Unset, str]):
-        id (Union[Unset, RhubApiTowerCreateTemplateJsonBodyId]): Internal ID
+        id (Union[Unset, int]): Internal ID
     """
 
     name: str
@@ -26,7 +25,7 @@ class RhubApiTowerCreateTemplateJsonBody:
     tower_template_id: int
     tower_template_is_workflow: bool
     description: Union[Unset, str] = UNSET
-    id: Union[Unset, RhubApiTowerCreateTemplateJsonBodyId] = UNSET
+    id: Union[Unset, int] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -35,9 +34,7 @@ class RhubApiTowerCreateTemplateJsonBody:
         tower_template_id = self.tower_template_id
         tower_template_is_workflow = self.tower_template_is_workflow
         description = self.description
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
+        id = self.id
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -69,12 +66,7 @@ class RhubApiTowerCreateTemplateJsonBody:
 
         description = d.pop("description", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiTowerCreateTemplateJsonBodyId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiTowerCreateTemplateJsonBodyId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         rhub_api_tower_create_template_json_body = cls(
             name=name,

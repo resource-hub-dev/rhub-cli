@@ -3,9 +3,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.rhub_api_lab_location_location_list_response_200_data_item_id import (
-    RhubApiLabLocationLocationListResponse200DataItemId,
-)
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiLabLocationLocationListResponse200DataItem")
@@ -16,21 +13,18 @@ class RhubApiLabLocationLocationListResponse200DataItem:
     """
     Attributes:
         description (Union[Unset, None, str]): Long description of location, address, ... Example: Raleigh.
-        id (Union[Unset, RhubApiLabLocationLocationListResponse200DataItemId]):
+        id (Union[Unset, int]):
         name (Union[Unset, str]): Short name of location / IATA identifier / ... Example: RDU.
     """
 
     description: Union[Unset, None, str] = UNSET
-    id: Union[Unset, RhubApiLabLocationLocationListResponse200DataItemId] = UNSET
+    id: Union[Unset, int] = UNSET
     name: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         description = self.description
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         name = self.name
 
         field_dict: Dict[str, Any] = {}
@@ -50,12 +44,7 @@ class RhubApiLabLocationLocationListResponse200DataItem:
         d = copy(src_dict)
         description = d.pop("description", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiLabLocationLocationListResponse200DataItemId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiLabLocationLocationListResponse200DataItemId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         name = d.pop("name", UNSET)
 

@@ -5,9 +5,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 import attr
 from dateutil.parser import isoparse
 
-from ..models.rhub_api_tower_list_template_jobs_response_200_data_item_id import (
-    RhubApiTowerListTemplateJobsResponse200DataItemId,
-)
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiTowerListTemplateJobsResponse200DataItem")
@@ -21,7 +18,7 @@ class RhubApiTowerListTemplateJobsResponse200DataItem:
         failed (Union[Unset, bool]):
         finished (Union[Unset, bool]):
         finished_at (Union[Unset, None, datetime.datetime]):
-        id (Union[Unset, RhubApiTowerListTemplateJobsResponse200DataItemId]): Internal ID
+        id (Union[Unset, int]): Internal ID
         launched_by (Union[Unset, str]):
         started (Union[Unset, bool]):
         started_at (Union[Unset, None, datetime.datetime]):
@@ -34,7 +31,7 @@ class RhubApiTowerListTemplateJobsResponse200DataItem:
     failed: Union[Unset, bool] = UNSET
     finished: Union[Unset, bool] = UNSET
     finished_at: Union[Unset, None, datetime.datetime] = UNSET
-    id: Union[Unset, RhubApiTowerListTemplateJobsResponse200DataItemId] = UNSET
+    id: Union[Unset, int] = UNSET
     launched_by: Union[Unset, str] = UNSET
     started: Union[Unset, bool] = UNSET
     started_at: Union[Unset, None, datetime.datetime] = UNSET
@@ -54,10 +51,7 @@ class RhubApiTowerListTemplateJobsResponse200DataItem:
         if not isinstance(self.finished_at, Unset):
             finished_at = self.finished_at.isoformat() if self.finished_at else None
 
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         launched_by = self.launched_by
         started = self.started
         started_at: Union[Unset, None, str] = UNSET
@@ -119,12 +113,7 @@ class RhubApiTowerListTemplateJobsResponse200DataItem:
         else:
             finished_at = isoparse(_finished_at)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiTowerListTemplateJobsResponse200DataItemId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiTowerListTemplateJobsResponse200DataItemId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         launched_by = d.pop("launched_by", UNSET)
 

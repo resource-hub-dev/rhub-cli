@@ -1,5 +1,3 @@
-import json
-
 import click
 
 from rhub_cli.api.auth.rhub_api_auth_user_create_user import sync_detailed as user_create
@@ -9,11 +7,8 @@ from rhub_cli.api.auth.rhub_api_auth_user_list_users import sync_detailed as use
 from rhub_cli.api.auth.rhub_api_auth_user_update_user import sync_detailed as user_update
 from rhub_cli.api_request import APIRequest, pass_api
 from rhub_cli.models.rhub_api_auth_user_create_user_json_body import RhubApiAuthUserCreateUserJsonBody
-from rhub_cli.models.rhub_api_auth_user_create_user_json_body_id import RhubApiAuthUserCreateUserJsonBodyId
 from rhub_cli.models.rhub_api_auth_user_list_users_filter import RhubApiAuthUserListUsersFilter
 from rhub_cli.models.rhub_api_auth_user_update_user_json_body import RhubApiAuthUserUpdateUserJsonBody
-from rhub_cli.models.rhub_api_auth_user_update_user_json_body_id import RhubApiAuthUserUpdateUserJsonBodyId
-from rhub_cli.types import UNSET
 
 from .groups import groups
 from .roles import roles
@@ -64,7 +59,6 @@ def get_list(
 @click.option("--username", required=True, type=str)
 @click.option("--enabled", is_flag=True)
 @click.option("--first-name", type=str)
-@click.option("--id")
 @click.option("--last-name", type=str)
 @click.option("--password", type=str)
 @pass_api
@@ -74,25 +68,16 @@ def create(
     username,
     enabled,
     first_name,
-    id,
     last_name,
     password,
 ):
     """Create user"""
-
-    if id is None:
-        id = UNSET
-    else:
-        _tmp = RhubApiAuthUserCreateUserJsonBodyId()
-        _tmp.additional_properties = json.loads(id)  # TODO: check if dict
-        id = _tmp
 
     json_body = RhubApiAuthUserCreateUserJsonBody(
         email=email,
         username=username,
         enabled=enabled,
         first_name=first_name,
-        id=id,
         last_name=last_name,
         password=password,
     )
@@ -141,7 +126,6 @@ def remove(
 @click.option("--email", type=str)
 @click.option("--enabled", is_flag=True)
 @click.option("--first-name", type=str)
-@click.option("--id")
 @click.option("--last-name", type=str)
 @click.option("--password", type=str)
 @click.option("--username", type=str)
@@ -152,25 +136,16 @@ def update(
     email,
     enabled,
     first_name,
-    id,
     last_name,
     password,
     username,
 ):
     """Update user"""
 
-    if id is None:
-        id = UNSET
-    else:
-        _tmp = RhubApiAuthUserUpdateUserJsonBodyId()
-        _tmp.additional_properties = json.loads(id)  # TODO: check if dict
-        id = _tmp
-
     json_body = RhubApiAuthUserUpdateUserJsonBody(
         email=email,
         enabled=enabled,
         first_name=first_name,
-        id=id,
         last_name=last_name,
         password=password,
         username=username,

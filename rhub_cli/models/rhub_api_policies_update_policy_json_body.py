@@ -4,7 +4,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 import attr
 
 from ..models.rhub_api_policies_update_policy_json_body_constraint import RhubApiPoliciesUpdatePolicyJsonBodyConstraint
-from ..models.rhub_api_policies_update_policy_json_body_id import RhubApiPoliciesUpdatePolicyJsonBodyId
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiPoliciesUpdatePolicyJsonBody")
@@ -16,13 +15,13 @@ class RhubApiPoliciesUpdatePolicyJsonBody:
     Attributes:
         constraint (Union[Unset, RhubApiPoliciesUpdatePolicyJsonBodyConstraint]):
         department (Union[Unset, str]): Department Name
-        id (Union[Unset, RhubApiPoliciesUpdatePolicyJsonBodyId]): Internal ID
+        id (Union[Unset, int]): Internal ID
         name (Union[Unset, str]): Name
     """
 
     constraint: Union[Unset, RhubApiPoliciesUpdatePolicyJsonBodyConstraint] = UNSET
     department: Union[Unset, str] = UNSET
-    id: Union[Unset, RhubApiPoliciesUpdatePolicyJsonBodyId] = UNSET
+    id: Union[Unset, int] = UNSET
     name: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -32,10 +31,7 @@ class RhubApiPoliciesUpdatePolicyJsonBody:
             constraint = self.constraint.to_dict()
 
         department = self.department
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         name = self.name
 
         field_dict: Dict[str, Any] = {}
@@ -64,12 +60,7 @@ class RhubApiPoliciesUpdatePolicyJsonBody:
 
         department = d.pop("department", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiPoliciesUpdatePolicyJsonBodyId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiPoliciesUpdatePolicyJsonBodyId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         name = d.pop("name", UNSET)
 

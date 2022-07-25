@@ -3,12 +3,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 
-from ..models.rhub_api_lab_cluster_create_cluster_hosts_json_body_item_cluster_id import (
-    RhubApiLabClusterCreateClusterHostsJsonBodyItemClusterId,
-)
-from ..models.rhub_api_lab_cluster_create_cluster_hosts_json_body_item_id import (
-    RhubApiLabClusterCreateClusterHostsJsonBodyItemId,
-)
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiLabClusterCreateClusterHostsJsonBodyItem")
@@ -20,8 +14,8 @@ class RhubApiLabClusterCreateClusterHostsJsonBodyItem:
     Attributes:
         fqdn (str):
         ipaddr (List[str]):
-        cluster_id (Union[Unset, RhubApiLabClusterCreateClusterHostsJsonBodyItemClusterId]):
-        id (Union[Unset, RhubApiLabClusterCreateClusterHostsJsonBodyItemId]):
+        cluster_id (Union[Unset, int]):
+        id (Union[Unset, int]):
         num_vcpus (Union[Unset, None, int]):
         num_volumes (Union[Unset, None, int]):
         ram_mb (Union[Unset, None, int]):
@@ -30,8 +24,8 @@ class RhubApiLabClusterCreateClusterHostsJsonBodyItem:
 
     fqdn: str
     ipaddr: List[str]
-    cluster_id: Union[Unset, RhubApiLabClusterCreateClusterHostsJsonBodyItemClusterId] = UNSET
-    id: Union[Unset, RhubApiLabClusterCreateClusterHostsJsonBodyItemId] = UNSET
+    cluster_id: Union[Unset, int] = UNSET
+    id: Union[Unset, int] = UNSET
     num_vcpus: Union[Unset, None, int] = UNSET
     num_volumes: Union[Unset, None, int] = UNSET
     ram_mb: Union[Unset, None, int] = UNSET
@@ -47,14 +41,8 @@ class RhubApiLabClusterCreateClusterHostsJsonBodyItem:
 
             ipaddr.append(ipaddr_item)
 
-        cluster_id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.cluster_id, Unset):
-            cluster_id = self.cluster_id.to_dict()
-
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        cluster_id = self.cluster_id
+        id = self.id
         num_vcpus = self.num_vcpus
         num_volumes = self.num_volumes
         ram_mb = self.ram_mb
@@ -99,19 +87,9 @@ class RhubApiLabClusterCreateClusterHostsJsonBodyItem:
 
             ipaddr.append(ipaddr_item)
 
-        _cluster_id = d.pop("cluster_id", UNSET)
-        cluster_id: Union[Unset, RhubApiLabClusterCreateClusterHostsJsonBodyItemClusterId]
-        if isinstance(_cluster_id, Unset):
-            cluster_id = UNSET
-        else:
-            cluster_id = RhubApiLabClusterCreateClusterHostsJsonBodyItemClusterId.from_dict(_cluster_id)
+        cluster_id = d.pop("cluster_id", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiLabClusterCreateClusterHostsJsonBodyItemId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiLabClusterCreateClusterHostsJsonBodyItemId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         num_vcpus = d.pop("num_vcpus", UNSET)
 

@@ -1,5 +1,3 @@
-import json
-
 import click
 
 from rhub_cli.api.tower.rhub_api_tower_create_server import sync_detailed as server_create
@@ -9,12 +7,9 @@ from rhub_cli.api.tower.rhub_api_tower_list_servers import sync_detailed as serv
 from rhub_cli.api.tower.rhub_api_tower_update_server import sync_detailed as server_update
 from rhub_cli.api_request import APIRequest, pass_api
 from rhub_cli.models.rhub_api_tower_create_server_json_body import RhubApiTowerCreateServerJsonBody
-from rhub_cli.models.rhub_api_tower_create_server_json_body_id import RhubApiTowerCreateServerJsonBodyId
 from rhub_cli.models.rhub_api_tower_list_servers_filter import RhubApiTowerListServersFilter
 from rhub_cli.models.rhub_api_tower_list_servers_sort import RhubApiTowerListServersSort
 from rhub_cli.models.rhub_api_tower_update_server_json_body import RhubApiTowerUpdateServerJsonBody
-from rhub_cli.models.rhub_api_tower_update_server_json_body_id import RhubApiTowerUpdateServerJsonBodyId
-from rhub_cli.types import UNSET
 
 
 @click.group()
@@ -67,7 +62,6 @@ def get_list(
 @click.option("--url", required=True, type=str)
 @click.option("--description", type=str)
 @click.option("--enabled", is_flag=True)
-@click.option("--id")
 @click.option("--verify-ssl", is_flag=True, help="Option to disable SSL certificate verification.")
 @pass_api
 def create(
@@ -77,17 +71,9 @@ def create(
     url,
     description,
     enabled,
-    id,
     verify_ssl,
 ):
     """Create Tower server"""
-
-    if id is None:
-        id = UNSET
-    else:
-        _tmp = RhubApiTowerCreateServerJsonBodyId()
-        _tmp.additional_properties = json.loads(id)  # TODO: check if dict
-        id = _tmp
 
     json_body = RhubApiTowerCreateServerJsonBody(
         credentials=credentials,
@@ -95,7 +81,6 @@ def create(
         url=url,
         description=description,
         enabled=enabled,
-        id=id,
         verify_ssl=verify_ssl,
     )
 
@@ -143,7 +128,6 @@ def remove(
 @click.option("--credentials", type=str, help="Tower credentials path (Vault mount/path)")
 @click.option("--description", type=str)
 @click.option("--enabled", is_flag=True)
-@click.option("--id")
 @click.option("--name", type=str)
 @click.option("--url", type=str)
 @click.option("--verify-ssl", is_flag=True, help="Option to disable SSL certificate verification.")
@@ -154,25 +138,16 @@ def update(
     credentials,
     description,
     enabled,
-    id,
     name,
     url,
     verify_ssl,
 ):
     """Change Tower server"""
 
-    if id is None:
-        id = UNSET
-    else:
-        _tmp = RhubApiTowerUpdateServerJsonBodyId()
-        _tmp.additional_properties = json.loads(id)  # TODO: check if dict
-        id = _tmp
-
     json_body = RhubApiTowerUpdateServerJsonBody(
         credentials=credentials,
         description=description,
         enabled=enabled,
-        id=id,
         name=name,
         url=url,
         verify_ssl=verify_ssl,

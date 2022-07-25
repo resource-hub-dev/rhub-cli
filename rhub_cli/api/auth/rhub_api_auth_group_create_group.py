@@ -72,7 +72,12 @@ def sync_detailed(
       https://www.keycloak.org/docs-api/11.0/rest-api/#_grouprepresentation)
 
     Args:
-        json_body (RhubApiAuthGroupCreateGroupJsonBody):
+        json_body (RhubApiAuthGroupCreateGroupJsonBody): See [Keycloak API: GroupRepresentation](
+            https://www.keycloak.org/docs-api/11.0/rest-api/#_grouprepresentation)
+             Example: {'access': {'manage': True, 'manageMembership': True, 'view': True},
+            'attributes': {'mailing-list': ['admin-list@example.com']}, 'clientRoles': {}, 'id':
+            'fa831aa3-7a5a-4667-9c3f-bf20465058f6', 'name': 'admin', 'path': '/admin', 'realmRoles':
+            [], 'subGroups': []}.
 
     Returns:
         Response[Union[RhubApiAuthGroupCreateGroupResponse200, RhubApiAuthGroupCreateGroupResponseDefault]]
@@ -105,7 +110,12 @@ def sync(
       https://www.keycloak.org/docs-api/11.0/rest-api/#_grouprepresentation)
 
     Args:
-        json_body (RhubApiAuthGroupCreateGroupJsonBody):
+        json_body (RhubApiAuthGroupCreateGroupJsonBody): See [Keycloak API: GroupRepresentation](
+            https://www.keycloak.org/docs-api/11.0/rest-api/#_grouprepresentation)
+             Example: {'access': {'manage': True, 'manageMembership': True, 'view': True},
+            'attributes': {'mailing-list': ['admin-list@example.com']}, 'clientRoles': {}, 'id':
+            'fa831aa3-7a5a-4667-9c3f-bf20465058f6', 'name': 'admin', 'path': '/admin', 'realmRoles':
+            [], 'subGroups': []}.
 
     Returns:
         Response[Union[RhubApiAuthGroupCreateGroupResponse200, RhubApiAuthGroupCreateGroupResponseDefault]]
@@ -131,7 +141,12 @@ async def asyncio_detailed(
       https://www.keycloak.org/docs-api/11.0/rest-api/#_grouprepresentation)
 
     Args:
-        json_body (RhubApiAuthGroupCreateGroupJsonBody):
+        json_body (RhubApiAuthGroupCreateGroupJsonBody): See [Keycloak API: GroupRepresentation](
+            https://www.keycloak.org/docs-api/11.0/rest-api/#_grouprepresentation)
+             Example: {'access': {'manage': True, 'manageMembership': True, 'view': True},
+            'attributes': {'mailing-list': ['admin-list@example.com']}, 'clientRoles': {}, 'id':
+            'fa831aa3-7a5a-4667-9c3f-bf20465058f6', 'name': 'admin', 'path': '/admin', 'realmRoles':
+            [], 'subGroups': []}.
 
     Returns:
         Response[Union[RhubApiAuthGroupCreateGroupResponse200, RhubApiAuthGroupCreateGroupResponseDefault]]
@@ -162,7 +177,12 @@ async def asyncio(
       https://www.keycloak.org/docs-api/11.0/rest-api/#_grouprepresentation)
 
     Args:
-        json_body (RhubApiAuthGroupCreateGroupJsonBody):
+        json_body (RhubApiAuthGroupCreateGroupJsonBody): See [Keycloak API: GroupRepresentation](
+            https://www.keycloak.org/docs-api/11.0/rest-api/#_grouprepresentation)
+             Example: {'access': {'manage': True, 'manageMembership': True, 'view': True},
+            'attributes': {'mailing-list': ['admin-list@example.com']}, 'clientRoles': {}, 'id':
+            'fa831aa3-7a5a-4667-9c3f-bf20465058f6', 'name': 'admin', 'path': '/admin', 'realmRoles':
+            [], 'subGroups': []}.
 
     Returns:
         Response[Union[RhubApiAuthGroupCreateGroupResponse200, RhubApiAuthGroupCreateGroupResponseDefault]]

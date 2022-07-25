@@ -4,7 +4,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 import attr
 
 from ..models.rhub_api_auth_group_get_group_response_200_attributes import RhubApiAuthGroupGetGroupResponse200Attributes
-from ..models.rhub_api_auth_group_get_group_response_200_id import RhubApiAuthGroupGetGroupResponse200Id
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiAuthGroupGetGroupResponse200")
@@ -22,12 +21,12 @@ class RhubApiAuthGroupGetGroupResponse200:
 
         Attributes:
             attributes (Union[Unset, RhubApiAuthGroupGetGroupResponse200Attributes]): Group attributes
-            id (Union[Unset, RhubApiAuthGroupGetGroupResponse200Id]):
+            id (Union[Unset, str]):
             name (Union[Unset, str]):
     """
 
     attributes: Union[Unset, RhubApiAuthGroupGetGroupResponse200Attributes] = UNSET
-    id: Union[Unset, RhubApiAuthGroupGetGroupResponse200Id] = UNSET
+    id: Union[Unset, str] = UNSET
     name: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -36,10 +35,7 @@ class RhubApiAuthGroupGetGroupResponse200:
         if not isinstance(self.attributes, Unset):
             attributes = self.attributes.to_dict()
 
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         name = self.name
 
         field_dict: Dict[str, Any] = {}
@@ -64,12 +60,7 @@ class RhubApiAuthGroupGetGroupResponse200:
         else:
             attributes = RhubApiAuthGroupGetGroupResponse200Attributes.from_dict(_attributes)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiAuthGroupGetGroupResponse200Id]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiAuthGroupGetGroupResponse200Id.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         name = d.pop("name", UNSET)
 
