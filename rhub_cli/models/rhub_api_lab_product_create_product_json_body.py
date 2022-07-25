@@ -4,7 +4,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union, cast
 import attr
 
 from ..models.rhub_api_lab_product_create_product_json_body_flavors import RhubApiLabProductCreateProductJsonBodyFlavors
-from ..models.rhub_api_lab_product_create_product_json_body_id import RhubApiLabProductCreateProductJsonBodyId
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiLabProductCreateProductJsonBody")
@@ -21,7 +20,7 @@ class RhubApiLabProductCreateProductJsonBody:
         description (Union[Unset, str]):
         enabled (Union[Unset, bool]):
         flavors (Union[Unset, None, RhubApiLabProductCreateProductJsonBodyFlavors]):
-        id (Union[Unset, RhubApiLabProductCreateProductJsonBodyId]):
+        id (Union[Unset, int]):
     """
 
     name: str
@@ -31,7 +30,7 @@ class RhubApiLabProductCreateProductJsonBody:
     description: Union[Unset, str] = UNSET
     enabled: Union[Unset, bool] = UNSET
     flavors: Union[Unset, None, RhubApiLabProductCreateProductJsonBodyFlavors] = UNSET
-    id: Union[Unset, RhubApiLabProductCreateProductJsonBodyId] = UNSET
+    id: Union[Unset, int] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -51,9 +50,7 @@ class RhubApiLabProductCreateProductJsonBody:
         if not isinstance(self.flavors, Unset):
             flavors = self.flavors.to_dict() if self.flavors else None
 
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
+        id = self.id
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -109,12 +106,7 @@ class RhubApiLabProductCreateProductJsonBody:
         else:
             flavors = RhubApiLabProductCreateProductJsonBodyFlavors.from_dict(_flavors)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiLabProductCreateProductJsonBodyId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiLabProductCreateProductJsonBodyId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         rhub_api_lab_product_create_product_json_body = cls(
             name=name,

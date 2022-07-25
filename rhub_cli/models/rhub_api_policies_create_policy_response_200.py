@@ -6,7 +6,6 @@ import attr
 from ..models.rhub_api_policies_create_policy_response_200_constraint import (
     RhubApiPoliciesCreatePolicyResponse200Constraint,
 )
-from ..models.rhub_api_policies_create_policy_response_200_id import RhubApiPoliciesCreatePolicyResponse200Id
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiPoliciesCreatePolicyResponse200")
@@ -18,13 +17,13 @@ class RhubApiPoliciesCreatePolicyResponse200:
     Attributes:
         constraint (Union[Unset, RhubApiPoliciesCreatePolicyResponse200Constraint]):
         department (Union[Unset, str]): Department Name
-        id (Union[Unset, RhubApiPoliciesCreatePolicyResponse200Id]): Internal ID
+        id (Union[Unset, int]): Internal ID
         name (Union[Unset, str]): Name
     """
 
     constraint: Union[Unset, RhubApiPoliciesCreatePolicyResponse200Constraint] = UNSET
     department: Union[Unset, str] = UNSET
-    id: Union[Unset, RhubApiPoliciesCreatePolicyResponse200Id] = UNSET
+    id: Union[Unset, int] = UNSET
     name: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -34,10 +33,7 @@ class RhubApiPoliciesCreatePolicyResponse200:
             constraint = self.constraint.to_dict()
 
         department = self.department
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         name = self.name
 
         field_dict: Dict[str, Any] = {}
@@ -66,12 +62,7 @@ class RhubApiPoliciesCreatePolicyResponse200:
 
         department = d.pop("department", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiPoliciesCreatePolicyResponse200Id]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiPoliciesCreatePolicyResponse200Id.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         name = d.pop("name", UNSET)
 

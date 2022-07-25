@@ -4,7 +4,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 import attr
 
 from ..models.rhub_api_auth_role_update_role_json_body_attributes import RhubApiAuthRoleUpdateRoleJsonBodyAttributes
-from ..models.rhub_api_auth_role_update_role_json_body_id import RhubApiAuthRoleUpdateRoleJsonBodyId
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiAuthRoleUpdateRoleJsonBody")
@@ -21,12 +20,12 @@ class RhubApiAuthRoleUpdateRoleJsonBody:
 
         Attributes:
             attributes (Union[Unset, RhubApiAuthRoleUpdateRoleJsonBodyAttributes]): Role attributes
-            id (Union[Unset, RhubApiAuthRoleUpdateRoleJsonBodyId]):
+            id (Union[Unset, str]):
             name (Union[Unset, str]):
     """
 
     attributes: Union[Unset, RhubApiAuthRoleUpdateRoleJsonBodyAttributes] = UNSET
-    id: Union[Unset, RhubApiAuthRoleUpdateRoleJsonBodyId] = UNSET
+    id: Union[Unset, str] = UNSET
     name: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -35,10 +34,7 @@ class RhubApiAuthRoleUpdateRoleJsonBody:
         if not isinstance(self.attributes, Unset):
             attributes = self.attributes.to_dict()
 
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         name = self.name
 
         field_dict: Dict[str, Any] = {}
@@ -63,12 +59,7 @@ class RhubApiAuthRoleUpdateRoleJsonBody:
         else:
             attributes = RhubApiAuthRoleUpdateRoleJsonBodyAttributes.from_dict(_attributes)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiAuthRoleUpdateRoleJsonBodyId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiAuthRoleUpdateRoleJsonBodyId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         name = d.pop("name", UNSET)
 

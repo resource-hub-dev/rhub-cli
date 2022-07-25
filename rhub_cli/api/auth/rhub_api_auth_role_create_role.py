@@ -72,7 +72,11 @@ def sync_detailed(
       https://www.keycloak.org/docs-api/11.0/rest-api/#_rolerepresentation)
 
     Args:
-        json_body (RhubApiAuthRoleCreateRoleJsonBody):
+        json_body (RhubApiAuthRoleCreateRoleJsonBody): See [Keycloak API: RoleRepresentation](
+            https://www.keycloak.org/docs-api/11.0/rest-api/#_rolerepresentation)
+             Example: {'attributes': {}, 'clientRole': False, 'composite': False, 'composites': {},
+            'containerId': 'admin', 'description': 'adminRole', 'id':
+            'fa831aa3-7a5a-4667-9c3f-bf20465058f6', 'name': 'admin'}.
 
     Returns:
         Response[Union[RhubApiAuthRoleCreateRoleResponse200, RhubApiAuthRoleCreateRoleResponseDefault]]
@@ -105,7 +109,11 @@ def sync(
       https://www.keycloak.org/docs-api/11.0/rest-api/#_rolerepresentation)
 
     Args:
-        json_body (RhubApiAuthRoleCreateRoleJsonBody):
+        json_body (RhubApiAuthRoleCreateRoleJsonBody): See [Keycloak API: RoleRepresentation](
+            https://www.keycloak.org/docs-api/11.0/rest-api/#_rolerepresentation)
+             Example: {'attributes': {}, 'clientRole': False, 'composite': False, 'composites': {},
+            'containerId': 'admin', 'description': 'adminRole', 'id':
+            'fa831aa3-7a5a-4667-9c3f-bf20465058f6', 'name': 'admin'}.
 
     Returns:
         Response[Union[RhubApiAuthRoleCreateRoleResponse200, RhubApiAuthRoleCreateRoleResponseDefault]]
@@ -131,7 +139,11 @@ async def asyncio_detailed(
       https://www.keycloak.org/docs-api/11.0/rest-api/#_rolerepresentation)
 
     Args:
-        json_body (RhubApiAuthRoleCreateRoleJsonBody):
+        json_body (RhubApiAuthRoleCreateRoleJsonBody): See [Keycloak API: RoleRepresentation](
+            https://www.keycloak.org/docs-api/11.0/rest-api/#_rolerepresentation)
+             Example: {'attributes': {}, 'clientRole': False, 'composite': False, 'composites': {},
+            'containerId': 'admin', 'description': 'adminRole', 'id':
+            'fa831aa3-7a5a-4667-9c3f-bf20465058f6', 'name': 'admin'}.
 
     Returns:
         Response[Union[RhubApiAuthRoleCreateRoleResponse200, RhubApiAuthRoleCreateRoleResponseDefault]]
@@ -162,7 +174,11 @@ async def asyncio(
       https://www.keycloak.org/docs-api/11.0/rest-api/#_rolerepresentation)
 
     Args:
-        json_body (RhubApiAuthRoleCreateRoleJsonBody):
+        json_body (RhubApiAuthRoleCreateRoleJsonBody): See [Keycloak API: RoleRepresentation](
+            https://www.keycloak.org/docs-api/11.0/rest-api/#_rolerepresentation)
+             Example: {'attributes': {}, 'clientRole': False, 'composite': False, 'composites': {},
+            'containerId': 'admin', 'description': 'adminRole', 'id':
+            'fa831aa3-7a5a-4667-9c3f-bf20465058f6', 'name': 'admin'}.
 
     Returns:
         Response[Union[RhubApiAuthRoleCreateRoleResponse200, RhubApiAuthRoleCreateRoleResponseDefault]]

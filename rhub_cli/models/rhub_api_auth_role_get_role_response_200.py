@@ -4,7 +4,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 import attr
 
 from ..models.rhub_api_auth_role_get_role_response_200_attributes import RhubApiAuthRoleGetRoleResponse200Attributes
-from ..models.rhub_api_auth_role_get_role_response_200_id import RhubApiAuthRoleGetRoleResponse200Id
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiAuthRoleGetRoleResponse200")
@@ -21,12 +20,12 @@ class RhubApiAuthRoleGetRoleResponse200:
 
         Attributes:
             attributes (Union[Unset, RhubApiAuthRoleGetRoleResponse200Attributes]): Role attributes
-            id (Union[Unset, RhubApiAuthRoleGetRoleResponse200Id]):
+            id (Union[Unset, str]):
             name (Union[Unset, str]):
     """
 
     attributes: Union[Unset, RhubApiAuthRoleGetRoleResponse200Attributes] = UNSET
-    id: Union[Unset, RhubApiAuthRoleGetRoleResponse200Id] = UNSET
+    id: Union[Unset, str] = UNSET
     name: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -35,10 +34,7 @@ class RhubApiAuthRoleGetRoleResponse200:
         if not isinstance(self.attributes, Unset):
             attributes = self.attributes.to_dict()
 
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         name = self.name
 
         field_dict: Dict[str, Any] = {}
@@ -63,12 +59,7 @@ class RhubApiAuthRoleGetRoleResponse200:
         else:
             attributes = RhubApiAuthRoleGetRoleResponse200Attributes.from_dict(_attributes)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiAuthRoleGetRoleResponse200Id]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiAuthRoleGetRoleResponse200Id.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         name = d.pop("name", UNSET)
 

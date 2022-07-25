@@ -6,9 +6,6 @@ import attr
 from ..models.rhub_api_lab_region_list_region_products_response_200_item_product_flavors import (
     RhubApiLabRegionListRegionProductsResponse200ItemProductFlavors,
 )
-from ..models.rhub_api_lab_region_list_region_products_response_200_item_product_id import (
-    RhubApiLabRegionListRegionProductsResponse200ItemProductId,
-)
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiLabRegionListRegionProductsResponse200ItemProduct")
@@ -21,7 +18,7 @@ class RhubApiLabRegionListRegionProductsResponse200ItemProduct:
         description (Union[Unset, str]):
         enabled (Union[Unset, bool]):
         flavors (Union[Unset, None, RhubApiLabRegionListRegionProductsResponse200ItemProductFlavors]):
-        id (Union[Unset, RhubApiLabRegionListRegionProductsResponse200ItemProductId]):
+        id (Union[Unset, int]):
         name (Union[Unset, str]):  Example: OpenShift.
         parameters (Union[Unset, List[Any]]):
         tower_template_name_create (Union[Unset, str]):  Example: rhub-openshift-create.
@@ -31,7 +28,7 @@ class RhubApiLabRegionListRegionProductsResponse200ItemProduct:
     description: Union[Unset, str] = UNSET
     enabled: Union[Unset, bool] = UNSET
     flavors: Union[Unset, None, RhubApiLabRegionListRegionProductsResponse200ItemProductFlavors] = UNSET
-    id: Union[Unset, RhubApiLabRegionListRegionProductsResponse200ItemProductId] = UNSET
+    id: Union[Unset, int] = UNSET
     name: Union[Unset, str] = UNSET
     parameters: Union[Unset, List[Any]] = UNSET
     tower_template_name_create: Union[Unset, str] = UNSET
@@ -45,10 +42,7 @@ class RhubApiLabRegionListRegionProductsResponse200ItemProduct:
         if not isinstance(self.flavors, Unset):
             flavors = self.flavors.to_dict() if self.flavors else None
 
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         name = self.name
         parameters: Union[Unset, List[Any]] = UNSET
         if not isinstance(self.parameters, Unset):
@@ -100,12 +94,7 @@ class RhubApiLabRegionListRegionProductsResponse200ItemProduct:
         else:
             flavors = RhubApiLabRegionListRegionProductsResponse200ItemProductFlavors.from_dict(_flavors)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiLabRegionListRegionProductsResponse200ItemProductId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiLabRegionListRegionProductsResponse200ItemProductId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         name = d.pop("name", UNSET)
 

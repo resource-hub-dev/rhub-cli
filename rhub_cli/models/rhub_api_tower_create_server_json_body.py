@@ -3,7 +3,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.rhub_api_tower_create_server_json_body_id import RhubApiTowerCreateServerJsonBodyId
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiTowerCreateServerJsonBody")
@@ -18,7 +17,7 @@ class RhubApiTowerCreateServerJsonBody:
         url (str):
         description (Union[Unset, str]):
         enabled (Union[Unset, bool]):
-        id (Union[Unset, RhubApiTowerCreateServerJsonBodyId]):
+        id (Union[Unset, int]):
         verify_ssl (Union[Unset, bool]): Option to disable SSL certificate verification.
     """
 
@@ -27,7 +26,7 @@ class RhubApiTowerCreateServerJsonBody:
     url: str
     description: Union[Unset, str] = UNSET
     enabled: Union[Unset, bool] = UNSET
-    id: Union[Unset, RhubApiTowerCreateServerJsonBodyId] = UNSET
+    id: Union[Unset, int] = UNSET
     verify_ssl: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -37,10 +36,7 @@ class RhubApiTowerCreateServerJsonBody:
         url = self.url
         description = self.description
         enabled = self.enabled
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         verify_ssl = self.verify_ssl
 
         field_dict: Dict[str, Any] = {}
@@ -76,12 +72,7 @@ class RhubApiTowerCreateServerJsonBody:
 
         enabled = d.pop("enabled", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiTowerCreateServerJsonBodyId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiTowerCreateServerJsonBodyId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         verify_ssl = d.pop("verify_ssl", UNSET)
 

@@ -5,7 +5,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 import attr
 from dateutil.parser import isoparse
 
-from ..models.rhub_api_scheduler_cron_update_job_response_200_id import RhubApiSchedulerCronUpdateJobResponse200Id
 from ..models.rhub_api_scheduler_cron_update_job_response_200_job_name import (
     RhubApiSchedulerCronUpdateJobResponse200JobName,
 )
@@ -23,7 +22,7 @@ class RhubApiSchedulerCronUpdateJobResponse200:
     Attributes:
         description (Union[Unset, str]):
         enabled (Union[Unset, bool]):
-        id (Union[Unset, RhubApiSchedulerCronUpdateJobResponse200Id]):
+        id (Union[Unset, int]):
         job_name (Union[Unset, RhubApiSchedulerCronUpdateJobResponse200JobName]):
         job_params (Union[Unset, None, RhubApiSchedulerCronUpdateJobResponse200JobParams]):
         last_run (Union[Unset, None, datetime.datetime]):
@@ -33,7 +32,7 @@ class RhubApiSchedulerCronUpdateJobResponse200:
 
     description: Union[Unset, str] = UNSET
     enabled: Union[Unset, bool] = UNSET
-    id: Union[Unset, RhubApiSchedulerCronUpdateJobResponse200Id] = UNSET
+    id: Union[Unset, int] = UNSET
     job_name: Union[Unset, RhubApiSchedulerCronUpdateJobResponse200JobName] = UNSET
     job_params: Union[Unset, None, RhubApiSchedulerCronUpdateJobResponse200JobParams] = UNSET
     last_run: Union[Unset, None, datetime.datetime] = UNSET
@@ -44,10 +43,7 @@ class RhubApiSchedulerCronUpdateJobResponse200:
     def to_dict(self) -> Dict[str, Any]:
         description = self.description
         enabled = self.enabled
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         job_name: Union[Unset, str] = UNSET
         if not isinstance(self.job_name, Unset):
             job_name = self.job_name.value
@@ -92,12 +88,7 @@ class RhubApiSchedulerCronUpdateJobResponse200:
 
         enabled = d.pop("enabled", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiSchedulerCronUpdateJobResponse200Id]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiSchedulerCronUpdateJobResponse200Id.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         _job_name = d.pop("job_name", UNSET)
         job_name: Union[Unset, RhubApiSchedulerCronUpdateJobResponse200JobName]

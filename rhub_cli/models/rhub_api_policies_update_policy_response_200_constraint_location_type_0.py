@@ -3,9 +3,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.rhub_api_policies_update_policy_response_200_constraint_location_type_0_id import (
-    RhubApiPoliciesUpdatePolicyResponse200ConstraintLocationType0Id,
-)
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiPoliciesUpdatePolicyResponse200ConstraintLocationType0")
@@ -16,21 +13,18 @@ class RhubApiPoliciesUpdatePolicyResponse200ConstraintLocationType0:
     """
     Attributes:
         description (Union[Unset, None, str]): Long description of location, address, ... Example: Raleigh.
-        id (Union[Unset, RhubApiPoliciesUpdatePolicyResponse200ConstraintLocationType0Id]):
+        id (Union[Unset, int]):
         name (Union[Unset, str]): Short name of location / IATA identifier / ... Example: RDU.
     """
 
     description: Union[Unset, None, str] = UNSET
-    id: Union[Unset, RhubApiPoliciesUpdatePolicyResponse200ConstraintLocationType0Id] = UNSET
+    id: Union[Unset, int] = UNSET
     name: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         description = self.description
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         name = self.name
 
         field_dict: Dict[str, Any] = {}
@@ -50,12 +44,7 @@ class RhubApiPoliciesUpdatePolicyResponse200ConstraintLocationType0:
         d = copy(src_dict)
         description = d.pop("description", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiPoliciesUpdatePolicyResponse200ConstraintLocationType0Id]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiPoliciesUpdatePolicyResponse200ConstraintLocationType0Id.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         name = d.pop("name", UNSET)
 

@@ -3,7 +3,9 @@ from enum import Enum
 
 class RhubApiLabClusterListClustersFilterStatus(str, Enum):
     ACTIVE = "Active"
+    CREATE_FAILED = "Create Failed"
     DELETED = "Deleted"
+    DELETE_FAILED = "Delete Failed"
     DELETING = "Deleting"
     DELETION_FAILED = "Deletion Failed"
     DELETION_QUEUED = "Deletion Queued"

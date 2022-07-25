@@ -3,7 +3,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.rhub_api_tower_get_template_response_200_id import RhubApiTowerGetTemplateResponse200Id
 from ..models.rhub_api_tower_get_template_response_200_tower_survey import RhubApiTowerGetTemplateResponse200TowerSurvey
 from ..types import UNSET, Unset
 
@@ -15,7 +14,7 @@ class RhubApiTowerGetTemplateResponse200:
     """
     Attributes:
         description (Union[Unset, str]):
-        id (Union[Unset, RhubApiTowerGetTemplateResponse200Id]): Internal ID
+        id (Union[Unset, int]): Internal ID
         name (Union[Unset, str]):
         server_id (Union[Unset, int]):
         tower_template_id (Union[Unset, int]):
@@ -24,7 +23,7 @@ class RhubApiTowerGetTemplateResponse200:
     """
 
     description: Union[Unset, str] = UNSET
-    id: Union[Unset, RhubApiTowerGetTemplateResponse200Id] = UNSET
+    id: Union[Unset, int] = UNSET
     name: Union[Unset, str] = UNSET
     server_id: Union[Unset, int] = UNSET
     tower_template_id: Union[Unset, int] = UNSET
@@ -34,10 +33,7 @@ class RhubApiTowerGetTemplateResponse200:
 
     def to_dict(self) -> Dict[str, Any]:
         description = self.description
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         name = self.name
         server_id = self.server_id
         tower_template_id = self.tower_template_id
@@ -71,12 +67,7 @@ class RhubApiTowerGetTemplateResponse200:
         d = copy(src_dict)
         description = d.pop("description", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiTowerGetTemplateResponse200Id]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiTowerGetTemplateResponse200Id.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         name = d.pop("name", UNSET)
 

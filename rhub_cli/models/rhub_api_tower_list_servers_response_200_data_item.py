@@ -3,7 +3,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.rhub_api_tower_list_servers_response_200_data_item_id import RhubApiTowerListServersResponse200DataItemId
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiTowerListServersResponse200DataItem")
@@ -16,7 +15,7 @@ class RhubApiTowerListServersResponse200DataItem:
         credentials (Union[Unset, str]): Tower credentials path (Vault mount/path)
         description (Union[Unset, str]):
         enabled (Union[Unset, bool]):
-        id (Union[Unset, RhubApiTowerListServersResponse200DataItemId]):
+        id (Union[Unset, int]):
         name (Union[Unset, str]):
         url (Union[Unset, str]):
         verify_ssl (Union[Unset, bool]): Option to disable SSL certificate verification.
@@ -25,7 +24,7 @@ class RhubApiTowerListServersResponse200DataItem:
     credentials: Union[Unset, str] = UNSET
     description: Union[Unset, str] = UNSET
     enabled: Union[Unset, bool] = UNSET
-    id: Union[Unset, RhubApiTowerListServersResponse200DataItemId] = UNSET
+    id: Union[Unset, int] = UNSET
     name: Union[Unset, str] = UNSET
     url: Union[Unset, str] = UNSET
     verify_ssl: Union[Unset, bool] = UNSET
@@ -35,10 +34,7 @@ class RhubApiTowerListServersResponse200DataItem:
         credentials = self.credentials
         description = self.description
         enabled = self.enabled
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         name = self.name
         url = self.url
         verify_ssl = self.verify_ssl
@@ -72,12 +68,7 @@ class RhubApiTowerListServersResponse200DataItem:
 
         enabled = d.pop("enabled", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiTowerListServersResponse200DataItemId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiTowerListServersResponse200DataItemId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         name = d.pop("name", UNSET)
 

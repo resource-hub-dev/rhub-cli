@@ -3,7 +3,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.rhub_api_lab_location_location_create_json_body_id import RhubApiLabLocationLocationCreateJsonBodyId
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiLabLocationLocationCreateJsonBody")
@@ -15,20 +14,18 @@ class RhubApiLabLocationLocationCreateJsonBody:
     Attributes:
         name (str): Short name of location / IATA identifier / ... Example: RDU.
         description (Union[Unset, None, str]): Long description of location, address, ... Example: Raleigh.
-        id (Union[Unset, RhubApiLabLocationLocationCreateJsonBodyId]):
+        id (Union[Unset, int]):
     """
 
     name: str
     description: Union[Unset, None, str] = UNSET
-    id: Union[Unset, RhubApiLabLocationLocationCreateJsonBodyId] = UNSET
+    id: Union[Unset, int] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
         description = self.description
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
+        id = self.id
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -51,12 +48,7 @@ class RhubApiLabLocationLocationCreateJsonBody:
 
         description = d.pop("description", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiLabLocationLocationCreateJsonBodyId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiLabLocationLocationCreateJsonBodyId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         rhub_api_lab_location_location_create_json_body = cls(
             name=name,

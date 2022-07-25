@@ -3,7 +3,6 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.rhub_api_auth_user_create_user_json_body_id import RhubApiAuthUserCreateUserJsonBodyId
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RhubApiAuthUserCreateUserJsonBody")
@@ -11,22 +10,30 @@ T = TypeVar("T", bound="RhubApiAuthUserCreateUserJsonBody")
 
 @attr.s(auto_attribs=True)
 class RhubApiAuthUserCreateUserJsonBody:
-    """
-    Attributes:
-        email (str):
-        username (str):
-        enabled (Union[Unset, bool]):
-        first_name (Union[Unset, str]):
-        id (Union[Unset, RhubApiAuthUserCreateUserJsonBodyId]):
-        last_name (Union[Unset, str]):
-        password (Union[Unset, str]):
+    """See [Keycloak API: UserRepresentation](
+    https://www.keycloak.org/docs-api/11.0/rest-api/#_userrepresentation)
+
+      Example:
+          {'access': {'impersonate': True, 'manage': True, 'manageGroupMembership': True, 'mapRoles': True, 'view': True},
+              'createdTimestamp': 1614717256570, 'disableableCredentialTypes': [], 'email': 'testuser1@example.com',
+              'emailVerified': False, 'enabled': True, 'firstName': 'test', 'id': '743a5375-3513-4749-acb9-1cde1e159e3b',
+              'lastName': 'user1', 'notBefore': 0, 'requiredActions': [], 'totp': False, 'username': 'testuser1'}
+
+      Attributes:
+          email (str):
+          username (str):
+          enabled (Union[Unset, bool]):
+          first_name (Union[Unset, str]):
+          id (Union[Unset, str]):
+          last_name (Union[Unset, str]):
+          password (Union[Unset, str]):
     """
 
     email: str
     username: str
     enabled: Union[Unset, bool] = UNSET
     first_name: Union[Unset, str] = UNSET
-    id: Union[Unset, RhubApiAuthUserCreateUserJsonBodyId] = UNSET
+    id: Union[Unset, str] = UNSET
     last_name: Union[Unset, str] = UNSET
     password: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
@@ -36,10 +43,7 @@ class RhubApiAuthUserCreateUserJsonBody:
         username = self.username
         enabled = self.enabled
         first_name = self.first_name
-        id: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.id, Unset):
-            id = self.id.to_dict()
-
+        id = self.id
         last_name = self.last_name
         password = self.password
 
@@ -75,12 +79,7 @@ class RhubApiAuthUserCreateUserJsonBody:
 
         first_name = d.pop("firstName", UNSET)
 
-        _id = d.pop("id", UNSET)
-        id: Union[Unset, RhubApiAuthUserCreateUserJsonBodyId]
-        if isinstance(_id, Unset):
-            id = UNSET
-        else:
-            id = RhubApiAuthUserCreateUserJsonBodyId.from_dict(_id)
+        id = d.pop("id", UNSET)
 
         last_name = d.pop("lastName", UNSET)
 
